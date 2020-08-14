@@ -9,3 +9,22 @@
 .dropdown-menu {
   width: 300px !important;
 }
+
+a {
+  color: #5381ac;
+}
+
+a:hover {
+
+  color: #333;
+  text-decoration: none;
+
+}
+
+a:active {
+
+  color: #5381ac;
+  text-decoration: none;
+
+}
+

@@ -5,6 +5,7 @@ import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { MypostsComponent } from './myposts/myposts.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    MypostsComponent
   ],
   
   providers: [],
