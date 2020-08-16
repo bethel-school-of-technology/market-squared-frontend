@@ -61,21 +61,36 @@
         <input type="text" id="searchZip" class="form-control mb-2" placeholder="Enter ZIP">
     </div>
 
-    <div class="col-12 col-sm-12 col-md-4 col-lg-2 mb-2">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 mb-2">
         <label for="searchItem">By Item</label>
         <input type="text" id="searchItem" class="form-control mb-2" placeholder="Item name">
     </div>
 
-    <div class="col-12 col-sm-12 col-md-4 col-lg-2 mb-2">
-        <label for="searchSeller">By Seller</label>
-        <input type="text" id="searchSeller" class="form-control mb-2" placeholder="Seller name">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 mb-3">
+        <label for="searchCat">By Category</label>
+        <select class="form-control custom-select" id="searchCat">
+            <option selected>All</option>
+            <option>Books</option>
+            <option>Movies</option>
+            <option>Games</option>
+            <option>Furniture</option>
+            <option>Decoration</option>
+            <option>Music</option>
+            <option>Toys</option>
+            <option>Misc.</option>
+        </select>
     </div>
 
-    <div class="col mb-2">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 mb-2">
+        <label for="searchSeller">By Seller</label>
+        <input type="text" id="searchSeller" class="form-control" placeholder="Seller name">
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
         <label for="searchButs"> </label>
         <div id="searchButs" class="form-inline mt-2">
-        <button type="submit" id="searchSubmit" onclick="someFunction()" class="btn btn-success mr-2">Search</button>
-        <button type="button" id="searchClear" onclick="someOtherFunction()" class="btn btn-outline-secondary">Clear</button>
+            <button type="submit" id="searchSubmit" onclick="someFunction()" class="btn btn-success mr-2">Search</button>
+            <button type="button" id="searchClear" onclick="someOtherFunction()" class="btn btn-outline-secondary">Clear</button>
         </div>
     </div>
     </div>
@@ -88,84 +103,145 @@
 
     <div class="col mb-4">
         <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/books.jpg" alt="Card image cap">
+        
         <div class="card-body">
             <div class="card-text">
-            <h5>Bunch o' Books<br>$10.99</h5>
+            
+            <div class="row">
+
+                <div class="col-3 pl-4 cat-books"><span>N/A</span></div>
+                <div class="col"><h5>Bunch o' Books<br>$10.99</h5></div>
+
+            </div>
+
             <p><i>UserName01</i> | <i>Fort Worth, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut dui a ante ultricies ornare. Donec quam leo, dignissim sit amet mi non, iaculis porta enim.</p>
+            <p class="text-right"><a href="../post/">View post &#187;</a></p>
             </div>
         </div>
         </div>
     </div>
 
     <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/cassettes.jpg" alt="Card image cap">
-        <div class="card-body">
+        <div class="card" style="width: 20rem; height:100%;">
+        <div class="card-body d-flex flex-column">
             <div class="card-text">
-            <h5>Classic Cassettes<br>$5.00</h5>
-            <p><i>UserName02</i> | <i>Keller, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
+
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-music"><span>N/A</span></div>
+                    <div class="col"><h5>Classic Cassettes<br>$5.00</h5></div>
+    
+                </div>
+
+                <p><i>UserName02</i> | <i>Keller, TX</i></p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
+            </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a href="../post/">View post &#187;</a></p>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <div class="col mb-4">
+        <div class="card" style="width: 20rem; height:100%;">
+        <div class="card-body d-flex flex-column">
+            <div class="card-text">
+
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-movies"><span>N/A</span></div>
+                    <div class="col"><h5>Mid-90's Movies<br>$20.50</h5></div>
+    
+                </div>
+
+                <p><i>UserName03</i> | <i>Southlake, TX</i></p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
+            </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a href="../post/">View post &#187;</a></p>
             </div>
         </div>
         </div>
     </div>
 
     <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/vhs.jpg" alt="Card image cap">
-        <div class="card-body">
+        <div class="card" style="width: 20rem; height:100%">
+        <div class="card-body d-flex flex-column">
             <div class="card-text">
-            <h5>Mid-90s Movies<br>$20.50</h5>
-            <p><i>UserName03</i> | <i>Southlake, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
+            
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-games"><span>N/A</span></div>
+                    <div class="col"><h5>Gaming Gear<br>$75.00</h5></div>
+    
+                </div>
+
+                <p><i>UserName04</i> | <i>Azle, TX</i></p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
             </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a href="../post/">View post &#187;</a></p>
+            </div>
+
         </div>
         </div>
     </div>
 
     <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/videogames.jpg" alt="Card image cap">
-        <div class="card-body">
+        <div class="card" style="width: 20rem; height:100%">
+        <div class="card-body d-flex flex-column">
             <div class="card-text">
-            <h5>Gaming Gear<br>$75.00</h5>
-            <p><i>UserName04</i> | <i>Azle, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
+            
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-furniture"><span>N/A</span></div>
+                    <div class="col"><h5>Comfy Chairs<br>$25.00</h5></div>
+    
+                </div>
+
+                <p><i>UserName05</i> | <i>Westlake, TX</i></p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
             </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a href="../post/">View post &#187;</a></p>
+            </div>
+
         </div>
         </div>
     </div>
 
     <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/furniture.jpg" alt="Card image cap">
-        <div class="card-body">
+        <div class="card" style="width: 20rem; height:100%;">
+        <div class="card-body d-flex flex-column">
             <div class="card-text">
-            <h5>Comfy Chairs<br>$25.00</h5>
-            <p><i>UserName05</i> | <i>Westlake, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
-            </div>
-        </div>
-        </div>
-    </div>
 
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="../assets/images/toys.jpg" alt="Card image cap">
-        <div class="card-body">
-            <div class="card-text">
-            <h5>Toddler Toys<br>$15.00</h5>
-            <p><i>UserName05</i> | <i>N. Richland Hills, TX</i></p>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <p class="text-right"><a href="#">View post &#187;</a></p>
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-toys"><span style="color:#666;">N/A</span></div>
+                    <div class="col"><h5>Toddler Toys<br>$15.00</h5></div>
+    
+                </div>
+
+                <p><i>UserName05</i> | <i>N. Richland Hills, TX</i></p>
+                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                
             </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a href="../post/">View post &#187;</a></p>
+            </div>
+
         </div>
         </div>
     </div>

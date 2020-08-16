@@ -28,3 +28,68 @@ a:active {
 
 }
 
+.cat-toys span {
+  display: none;
+}
+.cat-toys:after {
+  font-family: 'FontAwesome';
+  color: #666;  
+  font-size: 35px; 
+  display: inline-block; 
+  content: '\f1ae';
+}
+
+.cat-books span {
+  display: none;
+}
+.cat-books:after {
+  font-family: 'FontAwesome';
+  color: #666; 
+  font-size: 35px; 
+  display: inline-block; 
+  content: '\f02d';
+}
+
+.cat-music span {
+  display: none;
+}
+.cat-music:after {
+  font-family: 'FontAwesome';
+  color: #666; 
+  font-size: 35px; 
+  display: inline-block; 
+  content: '\f001';
+}
+
+.cat-furniture span {
+  display: none;
+}
+.cat-furniture:after {
+  font-family: 'FontAwesome';
+  color: #666;  
+  font-size: 35px; 
+  display: inline-block; 
+  content: '\f015';
+}
+
+.cat-games span {
+  display: none;
+}
+.cat-games:after {
+  font-family: 'FontAwesome';
+  color: #666; 
+  font-size: 35px; 
+  display: inline-block; 
+  content: '\f11b';
+}
+
+.cat-movies span {
+  display: none;
+}
+.cat-movies:after {
+  font-family: 'FontAwesome';
+  color: #666; 
+  font-size: 35px;
+  display: inline-block; 
+  content: '\f008';
+}
