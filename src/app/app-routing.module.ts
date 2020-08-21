@@ -6,12 +6,14 @@ import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '',redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'myposts', component: MypostsComponent },
     { path: 'post', component: PostComponent},
 
     // otherwise redirect to home
+    //below make a compomonet for 404 route place the 404 componenet below
     { path: '**', redirectTo: '' }
 ];
 
