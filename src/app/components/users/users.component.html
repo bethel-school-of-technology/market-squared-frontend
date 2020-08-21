@@ -1,17 +1,124 @@
-<table>
-    <thead>
-      <th>ID</th>
-      <th>UserName</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{user.id}}</td>
-        <td>{{user.username}}</td>
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastname}}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="./"><img src="../assets/logo.svg" style="width:45px;"><span class="vl ml-3 mr-2"></span> MARKET SQUARED</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item">
+            <a class="nav-link" href="../">Browse <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="../profile">My Profile <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="../myposts">My Posts <span class="sr-only"></span></a>
+        </li>
+
+    </ul>
+
+    <ul class="navbar-nav mr-right">
+
+        <li class="nav-item">
+        <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
+        </li>
+
+    </ul>
+
+    </div>
+</nav>
+
+
+<div class="container mx-auto" id="mainContent">
+
+  <div class = "list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="search by user"
+          [(ngModel)]="username"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchUser()"
+          >Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h4>Users Lists</h4>
+      <ul class="list-group">
+        <li
+          class="list-grou-item"
+          *ngFor="let user of users; let i=index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveUser(tutorial, i)"
+        >
+          {{ user.username }}
+        </li>
+      </ul>
+
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllUsers()"
+      >Remove All</button>
+    </div>
+
+    <div class="col-md-6">
+      <div *ngIf="currentUser">
+        <h4>User</h4>
+        <div>
+          <label><strong>Username:</strong></label> {{ currentUser.username }}
+        </div>
+        <div>
+          <label><strong>First Name:</strong></label> {{ currentUser.firstName }}
+        </div>
+        <div>
+          <label><strong>Last Name:</strong></label> {{ currentUser.lastName }}
+        </div>
+        <div>
+          <label><strong>Email:</strong></label> {{ currentUser.email }}
+        </div>
+
+        <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}"
+        >Edit</a>
+      </div>
+
+      <div *ngIf="!currentUser">
+        <br />
+        <p>Pleae click on a User...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!--
+  <table>
+      <thead>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+        </tr>
+      </tbody>
+    </table>
+    -->

@@ -35,10 +35,77 @@
 </nav>
 
 <div class="container mx-auto" id="mainContent">
+    <div *ngIf="currentUser" class="edit-form">
+        <h4>User</h4>
+        <form>
+            <div class="form-group">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    [{ngModel}]="currentUser.username"
+                    name="username"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    [{ngModel}]="currentUser.firstName"
+                    name="firstName"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    [{ngModel}]="currentUser.lastName"
+                    name="lastName"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    [{ngModel}]="currentUser.email"
+                    name="email"
+                />
+            </div>
+        </form>
+
+        <button class="badge badge-danger mr-2" (click)="deleteUser()">Delete</button>
+
+        <button type="submit" class="badge badge-success mr-2" (click)="updateUser()">Update</button>
+
+        <p>{{ message }}</p>
+
+    </div>
+
+    <div *ngIf="!currentUser">
+        <br />
+        <p>Cannot access this User.</p>
+    </div>
+
+</div>
+
+
+
+<!--
+
+<div class="container mx-auto" id="mainContent">
 
     <div class="row mt-5">
 
-        <!--ACCOUNT INFORMATION-->
+        
         <div class="col-12 px-2">
             <div class="row form-inline">
 
@@ -189,3 +256,5 @@
         
     </div>
 </div>
+
+-->
