@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user'
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
