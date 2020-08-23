@@ -25,7 +25,7 @@ import { UsersComponent } from './components/users/users.component';
     PostComponent,
     UsersComponent
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })

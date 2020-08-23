@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  userURL: string = 'http://localhost:3001/users'
+  userURL: string = 'http://localhost:3001/users';
   constructor(private http: HttpClient) { }
 
   getUsers = (): Observable<any> => {
-    return this.http.get<any>(this.userURL)
+    return this.http.get<any>(this.userURL);
   }
 }
