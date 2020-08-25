@@ -248,3 +248,13 @@
 
     </div>
 </div>
+
+<h1>Testing</h1>
+<ul *ngIf='users'>
+
+<li *ngFor='let user of users'>
+    <div>First Name: {{user.first_name}}</div>
+    <div>Last Name: {{user.last_name}}</div>
+    <div>Username: {{user.username}}</div>
+</li>
+</ul>

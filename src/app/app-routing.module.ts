@@ -9,6 +9,7 @@ import { PostComponent } from './components/post/post.component';
 const routes: Routes = [
     { path: '',redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    //will need to add :id to end of profile to route to specific profile
     { path: 'profile', component: ProfileComponent },
     { path: 'myposts', component: MypostsComponent },
     { path: 'post', component: PostComponent},
