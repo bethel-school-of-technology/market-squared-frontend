@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user'
 import { UserService } from '../../services/user.service'
-import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +12,22 @@ import { FormControl } from '@angular/forms';
 export class HomeComponent implements OnInit {
   users: User[];
 
-  constructor(private userService: UserService) { }
+  newUser: User = new User();
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
    this.userService.getUsers().subscribe(response => {
      this.users = response;
       console.log(response)
     });
+  }
+
+  createNewUser(){
+    this.userService.createUser(this.newUser).subscribe(response => {
+      console.log(response);
+      this.router.navigate(["profile"]);
+    })
   }
 
 }

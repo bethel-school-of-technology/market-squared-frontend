@@ -24,25 +24,43 @@
         <li class="nav-item dropdown mr-3">
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
-            <form class="form-horizontal" method="post" accept-charset="UTF-8">
+            <!--<form class="form-horizontal" method="post" accept-charset="UTF-8">
                 <input class="form-control form-fields" type="text" name="username" placeholder="Username">
                 <input class="form-control form-fields" type="text" name="password" placeholder="Password">
                 <input class="btn btn-secondary" style="width:100%;" type="button" name="submit" value="Login">
-            </form>
+            </form>-->
+
         </div>
         </li>
 
         <li class="nav-item dropdown">
         <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
-            <form class="form-horizontal" method="post" accept-charset="UTF-8">
+            <!--<form class="form-horizontal" method="post" accept-charset="UTF-8">
                 <input class="form-control form-fields" type="text" name="firstName" placeholder="First Name">
                 <input class="form-control form-fields" type="text" name="lastName" placeholder="Last Name">
                 <input class="form-control form-fields" type="text" name="email" placeholder="Email">
                 <input class="form-control form-fields" type="text" name="username" placeholder="Username">
                 <input class="form-control form-fields" type="text" name="password" placeholder="Password">
                 <input class="btn btn-secondary" style="width:100%;" type="button" name="submit" value="Sign Up">
+            </form>-->
+
+            <form class="form-horizontal" (ngSubmit) = "createNewUser()">
+                
+                <input class="form-control form-fields" type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.firstName">
+                
+                <input class="form-control form-fields" type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.lastName">
+
+                <input class="form-control form-fields" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email">
+
+                <input class="form-control form-fields" type="text" name="username" placeholder="Username" [(ngModel)]="newUser.username">
+
+                <input class="form-control form-fields" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password">
+
+                <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Sign Up">
+                
             </form>
+
         </div>
         </li>
 
