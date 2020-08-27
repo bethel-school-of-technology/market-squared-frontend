@@ -1,0 +1,17 @@
+{
+    "contacts": [
+        {
+     "id": 1,       
+    "first_name": "Frodo", 
+    "last_name": "Baggins",
+    "email": "frodob@gmail.com",
+    "username": "Frodo",
+    "address": "21 Shire",
+    "city": "The Shire",
+    "state": "Hobbiton",
+    "zip_code": 1234,
+    "password": "Password1!"
+    }
+]
+}
+    
