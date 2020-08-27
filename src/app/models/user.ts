@@ -5,5 +5,6 @@
     firstName: string;
     lastName: string;
     email: string;
+    zip_code: number;
     token: string;
 }

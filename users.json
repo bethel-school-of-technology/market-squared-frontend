@@ -6,6 +6,7 @@
       "lastName": "M",
       "username": "markm",
       "password": "Password1!",
+      "zip_code": 76244,
       "email": "mark@email.com"
     },
     {
@@ -14,6 +15,7 @@
       "lastName": "M",
       "username": "rachm",
       "password": "Password1!",
+      "zip_code": 76244,
       "email": "rach@email.com"
     },
     {
@@ -22,6 +24,7 @@
       "lastName": "M",
       "username": "brianm",
       "password": "Password1!",
+      "zip_code": 76244,
       "email": "brian@email.com"
     },
     {
@@ -29,6 +32,7 @@
       "lastName": "M",
       "email": "matt@email.com",
       "username": "mattm",
+      "zip_code": 76244,
       "password": "Password1!",
       "id": 4
     },
@@ -37,8 +41,18 @@
       "lastName": "M",
       "email": "kate@email.com",
       "username": "katem",
+      "zip_code": 76244,
       "password": "Password1!",
       "id": 5
+    },
+    {
+      "firstName": "hi",
+      "lastName": "hi",
+      "email": "hi",
+      "zip_code": "12345",
+      "username": "hi",
+      "password": "hi",
+      "id": 6
     }
   ]
 }
