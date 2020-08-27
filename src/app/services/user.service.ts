@@ -7,7 +7,8 @@ import { User } from '../models/user'
   providedIn: 'root'
 })
 export class UserService {
-  userURL: string = 'http://localhost:3000/users'
+  userURL: string = 'http://localhost:3001/users'
+  indexURL: string = 'http://localhost:3001'
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +19,7 @@ export class UserService {
 
   // We need a way to create a new user (CREATE)
   createUser(newUser: User): Observable<User>{
-
-    return this.http.post<User>(this.userURL, newUser);
+    return this.http.post<User>(this.indexURL, newUser);
 
   }
 
