@@ -7,8 +7,8 @@ import { User } from '../models/user'
   providedIn: 'root'
 })
 export class UserService {
-  userURL: string = 'http://localhost:3001/users'
-  indexURL: string = 'http://localhost:3001'
+  userURL: string = 'http://localhost:3306/users'
+  indexURL: string = 'http://localhost:3306'
 
   constructor(private http: HttpClient) { }
 
