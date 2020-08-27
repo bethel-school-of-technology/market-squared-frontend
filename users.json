@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Mark",
+      "lastName": "M",
+      "username": "markm",
+      "password": "Password1!",
+      "email": "mark@email.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Rach",
+      "lastName": "M",
+      "username": "rachm",
+      "password": "Password1!",
+      "email": "rach@email.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Brian",
+      "lastName": "M",
+      "username": "brianm",
+      "password": "Password1!",
+      "email": "brian@email.com"
+    },
+    {
+      "firstName": "Matt",
+      "lastName": "M",
+      "email": "matt@email.com",
+      "username": "mattm",
+      "password": "Password1!",
+      "id": 4
+    },
+    {
+      "firstName": "Kate",
+      "lastName": "M",
+      "email": "kate@email.com",
+      "username": "katem",
+      "password": "Password1!",
+      "id": 5
+    }
+  ]
+}
