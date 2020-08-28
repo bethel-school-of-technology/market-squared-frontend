@@ -1,8 +1,7 @@
 export class Post {
-  id: number;
-  username: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-  token: string;
+  postid: number;
+  title: string;
+  category: string;
+  price: number;
+  description: string;
 }
