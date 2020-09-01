@@ -9,7 +9,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
-import { UsersComponent } from './components/users/users.component';
 import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { CreateComponent } from './components/create/create.component';
     HomeComponent,
     MypostsComponent,
     PostComponent,
-    UsersComponent,
     CreateComponent
   ],
   
