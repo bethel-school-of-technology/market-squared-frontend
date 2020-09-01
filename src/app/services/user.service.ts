@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user'
+import { Post } from '../models/post'
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,16 @@ export class UserService {
   }
 
 // We need a way to create a listing (CREATE)
+
+createPost(): Observable<Post[]>{
+return this.http.get<Post[]>(this.indexURL);
+}
+getMyPosts(): Observable<Post[]>{
+  return this.http.get<Post[]>(this.indexURL);
+
+}
+
+
 // We need a way to list all the posts/listings (READ)
 // We need a way to see a single post/listing (READ)
 // We need a way to edit the listing (UPDATE)
