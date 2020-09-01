@@ -19,14 +19,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
    this.userService.getUsers().subscribe(response => {
      this.users = response;
-      console.log(response)
+      console.log(response);
     });
   }
 
   createNewUser(){
     this.userService.createUser(this.newUser).subscribe(response => {
-      console.log(response);
-      this.router.navigate(["profile"]);
+      console.log(this.newUser);
+      this.router.navigate([""]);
     })
   }
 

@@ -15,7 +15,7 @@ const routes: Routes = [
 
     //localhost:4200/profile
     //will need to add :id to end of profile to route to specific profile
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile/:id', component: ProfileComponent },
 
 
    //localhost:4200/myposts

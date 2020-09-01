@@ -18,10 +18,22 @@ export class UserService {
     return this.http.get<any>(this.userURL)
   }
 
+  // We need a way to get a single user (READ)
+  // Component needs to send an ID for the user
+
+  getOneUser(reqID: number): Observable<User> {
+    return this.http.get<User>(`${this.indexURL}/profile/${reqID}`)
+  }
+
   // We need a way to create a new user (CREATE)
   createUser(newUser: User): Observable<User>{
     return this.http.post<User>(this.indexURL, newUser);
+  }
 
+  // We need a way to edit the user (UPDATE)
+  // Component needs to provide the ID as well as the updated user info
+  updateUser(editID: number, edittedInfo: User): Observable<User> {
+    return this.http.put<User>(`${this.indexURL}/profile/${editID}`, edittedInfo)
   }
 
 // We need a way to create a listing (CREATE)
