@@ -10,6 +10,7 @@ import { Post } from '../models/post';
 export class UserService {
   userURL: string = 'http://localhost:3001/users';
   indexURL: string = 'http://localhost:3001';
+  mockdb: string = 'http://localhost:3000/post'
 
   constructor(private http: HttpClient) { }
 
@@ -49,7 +50,7 @@ export class UserService {
  
   // We need a way to list all the posts/listings (READ)
   getMyPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.indexURL);
+    return this.http.get<Post[]>(`${this.indexURL}/myposts`);
   }
 
   // We need a way to see a single post/listing (READ)
