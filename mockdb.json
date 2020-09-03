@@ -1,19 +1,34 @@
 {
-  "posts": [
+  "post": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+        "post_id": 3,
+        "user_id": 4,
+        "title": "Kendama",
+        "category": "Toys",
+        "price": 30,
+        "description": "Japanese skill toy",
+        "createdAt": "2020-08-31T18:59:58.000Z",
+        "updatedAt": "2020-08-31T18:59:58.000Z"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+        "post_id": 4,
+        "user_id": 4,
+        "title": "LOTR Legos",
+        "category": "Toys",
+        "price": 300,
+        "description": "Rare Lord of the Rings Lego Sets",
+        "createdAt": "2020-08-31T19:00:31.000Z",
+        "updatedAt": "2020-08-31T19:00:31.000Z"
+    },
+    {
+        "post_id": 5,
+        "user_id": 4,
+        "title": "Guardians of the Galaxy DVD",
+        "category": "Movies",
+        "price": 15,
+        "description": "GOG DVD. Used but in good condition",
+        "createdAt": "2020-08-31T19:01:21.000Z",
+        "updatedAt": "2020-08-31T19:01:21.000Z"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+]
 }
