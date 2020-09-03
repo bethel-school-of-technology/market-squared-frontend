@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../models/user'
-import { UserService } from '../../services/user.service'
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,17 +19,42 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-   this.userService.getUsers().subscribe(response => {
-     this.users = response;
+    this.userService.getUsers().subscribe(response => {
+      this.users = response;
       console.log(response);
     });
   }
 
-  createNewUser(){
-    this.userService.createUser(this.newUser).subscribe(response => {
-      console.log(this.newUser);
-      this.router.navigate([""]);
-    })
+  createNewUser() {
+    this.userService.createNewUser(this.newUser).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['profile']);
+    });
   }
+
+  loginUser(){
+    this.userService.loginUser(this.regUser).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['home']);
+    });
+  }
+
+  /* onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.customer = this.registerForm.value;
+    this.customerService.AddNewCustomer(this.customer)
+      .subscribe(a => {
+        console.log(a);
+        if (a) {
+          this.router.navigate(['/customer/login']);
+        }
+      })
+    console.log(this.registerForm.value);
+  } */
 
 }

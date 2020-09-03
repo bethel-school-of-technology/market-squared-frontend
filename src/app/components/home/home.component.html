@@ -29,6 +29,19 @@
                 <input class="form-control form-fields" type="text" name="password" placeholder="Password">
                 <input class="btn btn-secondary" style="width:100%;" type="button" name="submit" value="Login">
             </form>-->
+
+            
+            <form class="form-horizontal" (ngSubmit) = "loginUser()">
+
+                <input class="form-control form-fields" type="text" name="username" placeholder="Username" [(ngModel)]="regUser.username">
+
+                <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="regUser.password">
+
+                <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Login">
+                
+            </form>
+
+
         </div>
         </li>
 
@@ -46,9 +59,9 @@
 
             <form class="form-horizontal" (ngSubmit) = "createNewUser()">
                 
-                <input class="form-control form-fields" type="text" name="first_name" placeholder="First Name" [(ngModel)]="newUser.first_name">
+                <input class="form-control form-fields" type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.first_name">
                 
-                <input class="form-control form-fields" type="text" name="last_name" placeholder="Last Name" [(ngModel)]="newUser.last_name">
+                <input class="form-control form-fields" type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.last_name">
 
                 <input class="form-control form-fields" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email">
 
@@ -56,7 +69,7 @@
 
                 <input class="form-control form-fields" type="text" name="username" placeholder="Username" [(ngModel)]="newUser.username">
 
-                <input class="form-control form-fields" type="text" name="password" placeholder="Password" [(ngModel)]="newUser.password">
+                <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="newUser.password">
 
                 <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Sign Up">
                 
