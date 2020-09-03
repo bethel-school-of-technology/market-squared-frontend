@@ -27,7 +27,7 @@ import { CreateComponent } from './components/create/create.component';
     PostComponent,
     CreateComponent
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })
