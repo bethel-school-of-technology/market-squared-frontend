@@ -1,5 +1,5 @@
 export class Post {
-  postid: number;
+  post_id: number;
   title: string;
   category: string;
   price: number;
