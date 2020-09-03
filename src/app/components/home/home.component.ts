@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 
   newUser: User = new User();
 
+  regUser: User = new User();
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
