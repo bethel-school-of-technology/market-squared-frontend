@@ -25,6 +25,11 @@ export class UserService {
     return this.http.get<User>(`${this.indexURL}/profile/${reqID}`)
   }
 
+  // We need a way to Login (CREATE)
+  loginUser(regUser: User): Observable<User> {
+    return this.http.post<User>(`${this.indexURL}/login`, regUser);
+  }
+
   // We need a way to create a new user (CREATE)
   createUser(newUser: User): Observable<User>{
     return this.http.post<User>(this.indexURL, newUser);
