@@ -32,20 +32,19 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  loginUser(){
+  /* loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {
       console.log(response);
       this.router.navigate(['home']);
     });
-  }
+  } */
 
 
   loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
-
       console.log(localStorage.getItem("token"));
-      //this.router.navigate(['home']);
+      // this.router.navigate(['home']);
     });
   }
 
