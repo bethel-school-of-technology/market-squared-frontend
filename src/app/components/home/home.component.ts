@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
 
   regUser: User = new User();
 
+   //For Google Maps
+  lat = 40.730610;
+  lng = -73.935242;
+
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
