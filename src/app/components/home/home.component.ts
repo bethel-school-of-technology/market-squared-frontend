@@ -39,6 +39,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
+  loginUser(){
+    this.userService.loginUser(this.regUser).subscribe(response => {
+      localStorage.setItem("token", response.token);
+
+      console.log(localStorage.getItem("token"));
+      //this.router.navigate(['home']);
+    });
+  }
+
   /* onSubmit() {
     this.submitted = true;
 
@@ -57,4 +67,6 @@ export class HomeComponent implements OnInit {
     console.log(this.registerForm.value);
   } */
 
+
 }
+
