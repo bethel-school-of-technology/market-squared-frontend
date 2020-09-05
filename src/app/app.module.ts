@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { appRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -14,6 +15,9 @@ import { CreateComponent } from './components/create/create.component';
 @NgModule({
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDpohMSUHiRlD-L_0Gd4TDIE1OVcDqTtuQ'
+    }),
     appRoutingModule,
     HttpClientModule,
     FormsModule
