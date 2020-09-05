@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
+import { Post } from '../../models/post';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   users: User[];
-
   newUser: User = new User();
-
   regUser: User = new User();
+
+  posts: Post[];
+  regPost: Post = new Post();
 
    //For Google Maps
   lat = 40.730610;
@@ -28,6 +30,11 @@ export class HomeComponent implements OnInit {
       this.users = response;
       console.log(response);
     });
+
+    this.userService.getPosts().subscribe(response => {
+      this.posts = response;
+      console.log(response);
+    });
   }
 
   createNewUser() {
@@ -36,13 +43,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['profile']);
     });
   }
-
-  /* loginUser(){
-    this.userService.loginUser(this.regUser).subscribe(response => {
-      console.log(response);
-      this.router.navigate(['home']);
-    });
-  } */
 
 
   loginUser(){
@@ -53,23 +53,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  /* onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    this.customer = this.registerForm.value;
-    this.customerService.AddNewCustomer(this.customer)
-      .subscribe(a => {
-        console.log(a);
-        if (a) {
-          this.router.navigate(['/customer/login']);
-        }
-      })
-    console.log(this.registerForm.value);
-  } */
 
 
 }

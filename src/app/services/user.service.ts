@@ -10,7 +10,7 @@ import { Post } from '../models/post';
 export class UserService {
   userURL: string = 'http://localhost:3001/users';
   indexURL: string = 'http://localhost:3001';
-  mockdb: string = 'http://localhost:3000/post'
+  postURL: string = 'http://localhost:3001/posts'
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,6 @@ export class UserService {
   getOneUser(reqID: number): Observable<User> {
     return this.http.get<User>(`${this.indexURL}/profile/${reqID}`);
   }
-
 
   // We need a way to create a new user (CREATE)
 
@@ -44,6 +43,7 @@ export class UserService {
     return this.http.put<User>(`${this.indexURL}/profile/${editID}`, edittedInfo);
   }
 
+
   // We need a way to create a listing (CREATE)
   createPost(): Observable<Post[]> {
     return this.http.get<Post[]>(this.indexURL);
@@ -53,6 +53,18 @@ export class UserService {
   getMyPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.indexURL}/myposts`);
   }
+
+  // We need a way to list all the posts/listings (READ)
+  getOnePost(reqID: number): Observable<Post> {
+    return this.http.get<Post>(`${this.postURL}/${reqID}`);
+  }
+
+  // We need a way to list all the posts/listings (READ)
+  getPosts(): Observable<any> {
+    return this.http.get<any>(this.postURL);
+  }
+
+
 
   // We need a way to see a single post/listing (READ)
   // We need a way to edit the listing (UPDATE)
