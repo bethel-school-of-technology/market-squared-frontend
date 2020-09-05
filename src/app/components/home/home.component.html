@@ -286,6 +286,17 @@
 </li>
 </ul>
 
+<ul *ngIf='posts'>
+
+    <li *ngFor='let post of posts'>
+        <div>Title: {{post.title}}</div>
+        <div>User: {{post.user_id}}</div>
+        <div>Category: {{post.category}}</div>
+        <div>Price: {{post.price}}</div>
+        <div>Description: {{post.description}}</div>
+    </li>
+    </ul>
+
 <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
