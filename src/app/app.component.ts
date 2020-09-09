@@ -8,6 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MarketSquared';
-  //below is calling upon user component
-  
-}
+ }
