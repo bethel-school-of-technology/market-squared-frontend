@@ -12,6 +12,12 @@ export class UserService {
   indexURL: string = 'http://localhost:3001';
   postURL: string = 'http://localhost:3001/posts'
 
+     //For Google Maps
+     latitude: number;
+     longitude: number;
+     zoom:number;
+  
+
   constructor(private http: HttpClient) { }
 
   // We need a way to find users (READ)
@@ -62,6 +68,17 @@ export class UserService {
   // We need a way to list all the posts/listings (READ)
   getPosts(): Observable<any> {
     return this.http.get<any>(this.postURL);
+  }
+
+   // Get Current Location Coordinates
+    setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 15;
+      });
+    }
   }
 
 

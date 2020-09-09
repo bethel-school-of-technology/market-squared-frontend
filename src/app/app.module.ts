@@ -17,7 +17,8 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDpohMSUHiRlD-L_0Gd4TDIE1OVcDqTtuQ'
+      apiKey: 'AIzaSyDpohMSUHiRlD-L_0Gd4TDIE1OVcDqTtuQ',
+      libraries: ['places']
     }),
     appRoutingModule,
     HttpClientModule,
