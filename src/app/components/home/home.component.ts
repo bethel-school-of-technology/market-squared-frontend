@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
 
       console.log(currentUser);
 
-      this.router.navigateByUrl('/myposts');
+      this.router.navigate([`/profile/${currentUser}`]);
 
     });
   }
