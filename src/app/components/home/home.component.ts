@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   users: User[];
   newUser: User = new User();
   regUser: User = new User();
-
+  id: number;
   posts: Post[];
   regPost: Post = new Post();
 
@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit {
   }
 
   createNewUser() {
-    this.userService.createNewUser(this.newUser).subscribe(response => {
+   this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-      this.router.navigate(['profile']);
-    });
+     this.router.navigate(['/profile/:id']);
+   });
   }
 
 
@@ -49,11 +49,9 @@ export class HomeComponent implements OnInit {
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
       console.log(localStorage.getItem("token"));
-      // this.router.navigate(['home']);
+      this.router.navigateByUrl('/myposts');
     });
   }
-
-
 
 }
 

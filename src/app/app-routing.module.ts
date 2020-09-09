@@ -11,8 +11,8 @@ import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
 
-    //localhost:4200/home
-    { path: 'home', component: HomeComponent },
+    //localhost:4200
+    { path: '', component: HomeComponent },
 
     //localhost:4200/profile
     //will need to add :id to end of profile to route to specific profile
