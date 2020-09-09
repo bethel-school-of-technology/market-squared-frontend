@@ -48,8 +48,17 @@ export class HomeComponent implements OnInit {
   loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
-      console.log(localStorage.getItem("token"));
-      // this.router.navigate(['home']);
+      
+      let jwt = localStorage.getItem("token");
+
+      let jwtData = jwt.split('.')[1]
+      let decodedJwtJsonData = atob(jwtData)
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+      let currentUser = decodedJwtData.user_id;
+
+      console.log(currentUser);
+
     });
   }
 
