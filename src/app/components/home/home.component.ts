@@ -48,8 +48,24 @@ export class HomeComponent implements OnInit {
   loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
-      console.log(localStorage.getItem("token"));
+      
+      //Assign token to a variable (jwt)
+      let jwt = localStorage.getItem("token");
+      
+      //Separate the payload from the other items in the token
+      let jwtData = jwt.split('.')[1];
+      
+      //Decode token and assign decoded content to 'decodedJwtData'
+      let decodedJwtJsonData = atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      
+      //Pull User ID from decoded payload
+      let currentUser = decodedJwtData.user_id;
+
+      console.log(currentUser);
+
       this.router.navigateByUrl('/myposts');
+
     });
   }
 
