@@ -34,20 +34,21 @@
         <div class="col-12 px-2">
             <hr class="mb-4">
         </div>
-        <!--POST 01-->
+    
         <div class="row ml-4 mr-2">
             <div class="col-12 mb-4">
-                <h5 class="mb-0">POST 01</h5>
+            
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postTitle01">Title</label>
-                <input type="text" id="postTitle01" class="form-control mb-2" placeholder="Title" value="Bunch o' Books">
+                <input type="text" id="postTitle01" class="form-control mb-2" placeholder="Title" value="Enter Data">
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3">
                 <label for="postCat01">Category</label>
                 <select class="form-control custom-select" id="postCat01">
-                    <option selected>Books</option>
+                    <option selected></option>
                     <option>Movies</option>
+                    <option>Books</option>
                     <option>Games</option>
                     <option>Furniture</option>
                     <option>Decoration</option>
@@ -62,14 +63,18 @@
                     <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon3">$</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="0.00" value="10.99" id="postPrice01" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" placeholder="0.00" value="0.00" id="postPrice01" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="col-12 mb-4">
                 <label for="postDesc01">Description</label>
-                <input type="text" id="postDesc01" class="form-control mb-2" placeholder="Description" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit, purus nec ultrices vestibulum, nisi sem elementum nisl, non aliquet lacus.">
+                <input type="text" id="postDesc01" class="form-control mb-2" placeholder="Description" value="Product Information">
             </div>
             <div class="col-12 mb-2">
+
+                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create"
+                    class="btn btn-outline-success text-right">Create Post</button></div>
+
                 <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
                 <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
             </div>

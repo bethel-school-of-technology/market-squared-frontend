@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
+import { Post } from '../../models/post';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   users: User[];
-
   newUser: User = new User();
-
   regUser: User = new User();
+  id: number;
+  posts: Post[];
+  regPost: Post = new Post();
 
    //For Google Maps
   lat = 40.730610;
@@ -28,58 +30,44 @@ export class HomeComponent implements OnInit {
       this.users = response;
       console.log(response);
     });
+
+    this.userService.getPosts().subscribe(response => {
+      this.posts = response;
+      console.log(response);
+    });
   }
 
   createNewUser() {
-    this.userService.createNewUser(this.newUser).subscribe(response => {
+   this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-      this.router.navigate(['profile']);
-    });
+     this.router.navigate(['/profile/:id']);
+   });
   }
-
-  /* loginUser(){
-    this.userService.loginUser(this.regUser).subscribe(response => {
-      console.log(response);
-      this.router.navigate(['home']);
-    });
-  } */
 
 
   loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
       
+      //Assign token to a variable (jwt)
       let jwt = localStorage.getItem("token");
-
-      let jwtData = jwt.split('.')[1]
-      let decodedJwtJsonData = atob(jwtData)
-      let decodedJwtData = JSON.parse(decodedJwtJsonData)
-
+      
+      //Separate the payload from the other items in the token
+      let jwtData = jwt.split('.')[1];
+      
+      //Decode token and assign decoded content to 'decodedJwtData'
+      let decodedJwtJsonData = atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      
+      //Pull User ID from decoded payload
       let currentUser = decodedJwtData.user_id;
 
       console.log(currentUser);
 
+      this.router.navigateByUrl('/myposts');
+
     });
   }
-
-  /* onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    this.customer = this.registerForm.value;
-    this.customerService.AddNewCustomer(this.customer)
-      .subscribe(a => {
-        console.log(a);
-        if (a) {
-          this.router.navigate(['/customer/login']);
-        }
-      })
-    console.log(this.registerForm.value);
-  } */
-
 
 }
 
