@@ -3,8 +3,6 @@ body, html {
   }
   
   .bg {
-    /* The image used */
-    background-image: url("../../../../src/assets/images/error.jpg");
   
     /* Full height */
     height: 100%;
