@@ -19,10 +19,13 @@
         </li>
     </ul>
 
+
     <ul class="navbar-nav mr-right">
 
         <li class="nav-item dropdown mr-3">
+
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
+
         <div class="dropdown-menu dropdown-menu-right p-3">
 
 
@@ -40,10 +43,8 @@
                 <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="regUser.password">
 
                 <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Login">
-                
-            </form>
 
-        
+               </form>
 
         </div>
         </li>
@@ -52,10 +53,14 @@
         <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
 
+
+
+
+
             <form class="form-horizontal" (ngSubmit) = "createNewUser()">
-                
+
                 <input class="form-control form-fields" type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.first_name">
-                
+
                 <input class="form-control form-fields" type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.last_name">
 
                 <input class="form-control form-fields" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email">
@@ -67,22 +72,26 @@
                 <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="newUser.password">
 
                 <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Sign Up">
-                
+
             </form>
 
         </div>
+
         </li>
 
-    </ul>
-
-        
+        </ul>
 
     </div>
-</nav>
+
+    <li>
+    <input class="btn btn-secondary" style="width:auto;" type="submit" name="submit" value="Logout">
+  </li>
+
+  </nav>
 
 <div class="container mx-auto" id="searchContainer">
     <div class="row mt-5">
-    
+
     <div class="col-12 col-sm-12 col-md-6 col-lg-2 mb-2">
         <label for="searchZip">By Location</label>
         <input type="text" id="searchZip" class="form-control mb-2" placeholder="Enter ZIP">
@@ -130,10 +139,10 @@
 
     <div class="col mb-4">
         <div class="card" style="width: 20rem;">
-        
+
         <div class="card-body">
             <div class="card-text">
-            
+
             <div class="row">
 
                 <div class="col-3 pl-4 cat-books"><span>N/A</span></div>
@@ -158,12 +167,12 @@
 
                     <div class="col-3 pl-4 cat-music"><span>N/A</span></div>
                     <div class="col"><h5>Classic Cassettes<br>$5.00</h5></div>
-    
+
                 </div>
 
                 <p><i>UserName02</i> | <i>Keller, TX</i></p>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+
             </div>
 
             <div class="mt-auto">
@@ -183,12 +192,12 @@
 
                     <div class="col-3 pl-4 cat-movies"><span>N/A</span></div>
                     <div class="col"><h5>Mid-90's Movies<br>$20.50</h5></div>
-    
+
                 </div>
 
                 <p><i>UserName03</i> | <i>Southlake, TX</i></p>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+
             </div>
 
             <div class="mt-auto">
@@ -202,17 +211,17 @@
         <div class="card" style="width: 20rem; height:100%">
         <div class="card-body d-flex flex-column">
             <div class="card-text">
-            
+
                 <div class="row">
 
                     <div class="col-3 pl-4 cat-games"><span>N/A</span></div>
                     <div class="col"><h5>Gaming Gear<br>$75.00</h5></div>
-    
+
                 </div>
 
                 <p><i>UserName04</i> | <i>Azle, TX</i></p>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+
             </div>
 
             <div class="mt-auto">
@@ -227,17 +236,17 @@
         <div class="card" style="width: 20rem; height:100%">
         <div class="card-body d-flex flex-column">
             <div class="card-text">
-            
+
                 <div class="row">
 
                     <div class="col-3 pl-4 cat-furniture"><span>N/A</span></div>
                     <div class="col"><h5>Comfy Chairs<br>$25.00</h5></div>
-    
+
                 </div>
 
                 <p><i>UserName05</i> | <i>Westlake, TX</i></p>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+
             </div>
 
             <div class="mt-auto">
@@ -257,12 +266,12 @@
 
                     <div class="col-3 pl-4 cat-toys"><span style="color:#666;">N/A</span></div>
                     <div class="col"><h5>Toddler Toys<br>$15.00</h5></div>
-    
+
                 </div>
 
                 <p><i>UserName05</i> | <i>N. Richland Hills, TX</i></p>
                 <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+
             </div>
 
             <div class="mt-auto">
@@ -289,4 +298,3 @@
 <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
-  
