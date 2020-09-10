@@ -28,7 +28,7 @@
         <div class="col-12 px-2">
             <div class="row form-inline">
                 <div class="col-6 text-left"><h4 class="mb-0">Create Post</h4></div>
-                <div class="col-6 text-right"><button type="button" id="postCreate" class="btn btn-primary text-right">Create Post</button></div>
+                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create" class="btn btn-success">Create Post</button></div>
             </div>
         </div>
         <div class="col-12 px-2">
@@ -71,9 +71,6 @@
                 <input type="text" id="postDesc01" class="form-control mb-2" placeholder="Description" value="Product Information">
             </div>
             <div class="col-12 mb-2">
-
-                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create"
-                    class="btn btn-outline-success text-right">Create Post</button></div>
 
                 <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
                 <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
