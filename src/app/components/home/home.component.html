@@ -122,7 +122,7 @@
 
 <div class="container mx-auto" id="mainContent">
     <div class="row">
-
+<!-- 
     <div class="col mb-4">
         <div class="card" style="width: 20rem;">
 
@@ -266,12 +266,37 @@
 
         </div>
         </div>
+    </div> -->
+
+    <div class="col mb-4" *ngFor='let post of posts'>
+        <div class="card" style="width: 20rem; height:100%;">
+        <div class="card-body d-flex flex-column">
+            <div class="card-text">
+
+                <div class="row">
+
+                    <div class="col-3 pl-4 cat-toys"><span style="color:#666;">N/A</span></div>
+                    <div class="col"><h5>{{post.title}}<br>${{post.price}}</h5></div>
+
+                </div>
+
+                <p><i>{{post.user_id}}</i> | <i>{{post.category}}</i></p>
+                <p>{{post.description}}</p>
+
+            </div>
+
+            <div class="mt-auto">
+                <p class="text-right"><a [routerLink]="'../post'">View post &#187;</a></p>
+            </div>
+
+        </div>
+        </div>
     </div>
 
     </div>
 </div>
 
-<h1>Testing</h1>
+<!-- <h1>Testing</h1>
 <ul *ngIf='users'>
 
 <li *ngFor='let user of users'>
@@ -290,7 +315,7 @@
         <div>Price: {{post.price}}</div>
         <div>Description: {{post.description}}</div>
     </li>
-    </ul>
+    </ul> -->
 
 <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
