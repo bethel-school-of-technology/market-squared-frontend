@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   id: number;
   posts: Post[];
   regPost: Post = new Post();
+
   isLoggedIn: Boolean = false;
 
    //For Google Maps
@@ -37,9 +38,8 @@ export class HomeComponent implements OnInit {
       console.log(response);
     });
 
-    let jwt = localStorage.getItem("token");
-
-    this.isLoggedIn = (jwt) ? true : false;
+    //ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
+    localStorage.removeItem("token");
 
   }
 
@@ -75,7 +75,10 @@ export class HomeComponent implements OnInit {
 
       console.log(currentUser);
 
-      this.router.navigate([`/profile/${currentUser}`]);
+      //Determines if user is logged in or not
+      this.isLoggedIn = (jwt) ? true : false;
+
+      //this.router.navigate([`/profile/${currentUser}`]);
 
     });
   }
