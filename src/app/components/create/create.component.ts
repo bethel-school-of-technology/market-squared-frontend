@@ -25,16 +25,6 @@ export class CreateComponent implements OnInit {
     console.log(this.newPost)
   }
  
-
-  constructor(private userService: UserService) { }
-
-  ngOnInit(): void {
-    this.userService.getMyPosts().subscribe(response => {
-      this.posts = response;
-      console.log(response);
-    });
-
-  }
 }
 
 
