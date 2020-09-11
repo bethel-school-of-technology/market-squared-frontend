@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   id: number;
   posts: Post[];
   regPost: Post = new Post();
+  isLoggedIn: Boolean = false;
 
    //For Google Maps
   lat = 40.730610;
@@ -35,6 +36,11 @@ export class HomeComponent implements OnInit {
       this.posts = response;
       console.log(response);
     });
+
+    let jwt = localStorage.getItem("token");
+
+    this.isLoggedIn = (jwt) ? true : false;
+
   }
 
   createNewUser() {

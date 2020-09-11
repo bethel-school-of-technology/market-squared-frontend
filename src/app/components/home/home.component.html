@@ -23,7 +23,7 @@
 
         <li class="nav-item dropdown mr-3">
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
-        <div class="dropdown-menu dropdown-menu-right p-3">
+        <div class="dropdown-menu dropdown-menu-right p-3" *ngIf = "isLoggedIn">
 
             <form class="form-horizontal" (ngSubmit) = "loginUser()">
 
