@@ -21,9 +21,9 @@
 
     <ul class="navbar-nav mr-right">
 
-        <li class="nav-item dropdown mr-3">
+        <li class="nav-item dropdown mr-3" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
-        <div class="dropdown-menu dropdown-menu-right p-3" *ngIf = "isLoggedIn">
+        <div class="dropdown-menu dropdown-menu-right p-3">
 
             <form class="form-horizontal" (ngSubmit) = "loginUser()">
 
@@ -40,7 +40,7 @@
         </div>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
 
@@ -65,7 +65,7 @@
         </div>
         </li>
 
-        <li>
+        <li *ngIf="isLoggedIn">
             <input class="btn btn-outline-danger ml-3" style="width:auto;" type="submit" name="submit" value="Logout">
         </li>
 

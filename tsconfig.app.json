@@ -7,8 +7,8 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
-    "./src/app/components/create/CreateComponent.ts"
+    "src/polyfills.ts"/*,
+    "./src/app/components/create/CreateComponent.ts"*/
   ],
   "include": [
     "src/**/*.d.ts"
