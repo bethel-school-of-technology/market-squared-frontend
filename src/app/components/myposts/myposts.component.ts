@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Post } from '../../models/post';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,16 +15,26 @@ import { ActivatedRoute } from '@angular/router';
 export class MypostsComponent implements OnInit {
   posts: Post[] = [];
 
+  userID: number;
 
-  constructor(private actRoute: ActivatedRoute, private userService: UserService) { }
+  currentUser: User = new User();
+
+
+  constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    
+
     this.userService.getMyPosts().subscribe(response => {
       this.posts = response;
-       console.log(response);
-     });
+      console.log(response);
+    });
+}
+
+
+    btnClick = function () {
+      this.router.navigateByUrl('/');
+    };
+
 
   }
 
-}

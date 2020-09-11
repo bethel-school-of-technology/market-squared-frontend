@@ -46,7 +46,12 @@ export class HomeComponent implements OnInit {
   createNewUser() {
    this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-     this.router.navigate(['/profile/:id']);
+      
+    //Pull User ID from response
+      let currentUser = response.user_id;
+
+     this.router.navigate([`/profile/${currentUser}`]);
+
    });
   }
 

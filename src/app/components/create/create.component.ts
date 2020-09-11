@@ -9,17 +9,22 @@ import { Post } from 'src/app/models/post';
 })
 export class CreateComponent implements OnInit {
   posts: Post[] = [];
+  newPost: Post=new Post()
 
-  constructor() { }
+
+  constructor( private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getMyPosts().subscribe(response => {
-      this.posts = response;
-       console.log(response);
-     });
+     this.userService.createPost().subscribe(response => {
+       this.posts = response;
+        console.log(response);
+      });
  
   }
-  private userService: UserService
+  createPost(){
+    console.log(this.newPost)
+  }
+ 
 }
 
 
