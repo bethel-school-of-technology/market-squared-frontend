@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     });
 
     //ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
-    localStorage.removeItem("token");
+   // localStorage.removeItem("token");
 
   }
 
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
       //Determines if user is logged in or not
       this.isLoggedIn = (jwt) ? true : false;
 
-      //this.router.navigate([`/profile/${currentUser}`]);
+      this.router.navigate([`/profile/${currentUser}`]);
 
     });
   }
