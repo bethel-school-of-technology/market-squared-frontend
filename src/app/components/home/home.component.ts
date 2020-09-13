@@ -41,8 +41,6 @@ export class HomeComponent implements OnInit {
     //Assign token to a variable (jwt)
     let jwt = localStorage.getItem("token");
 
-    console.log(jwt);
-
     //Determines if user is logged in or not
     this.isLoggedIn = (jwt) ? true : false;
 
