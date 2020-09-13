@@ -35,6 +35,10 @@ export class MypostsComponent implements OnInit {
       this.router.navigateByUrl('/');
     };
 
+    logoutUser = function () {
+      this.router.navigateByUrl('/');
+    }
+
 
   }
 

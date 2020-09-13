@@ -37,8 +37,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  btnClick = function () {
+  logoutUser = function () {
     this.router.navigateByUrl('/');
-  };
+  }
 
 }

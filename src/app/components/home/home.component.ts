@@ -38,6 +38,12 @@ export class HomeComponent implements OnInit {
       console.log(response);
     });
 
+    //Assign token to a variable (jwt)
+    let jwt = localStorage.getItem("token");
+
+    //Determines if user is logged in or not
+    this.isLoggedIn = (jwt) ? true : false;
+
     //ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
    // localStorage.removeItem("token");
 
