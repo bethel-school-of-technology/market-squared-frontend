@@ -23,10 +23,14 @@
 
     <ul class="navbar-nav mr-right">
 
-        <li class="nav-item">
-            <button type="button" class="btn btn-outline-light my-2 my-sm-0" (click)="btnClick();"> Log Out </button>    
+        <!--<li class="nav-item">
+            <button type="button" class="btn btn-outline-light my-2 my-sm-0" (click)="logoutUser();"> Log Out </button>    
 
-        <!-- <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" routerLink="/home" routerLinkActive="active"id="logoutBut">Logout</button> -->
+         <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" routerLink="/home" routerLinkActive="active"id="logoutBut">Logout</button> 
+        </li>-->
+
+        <li>
+            <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
         </li>
 
     </ul>
