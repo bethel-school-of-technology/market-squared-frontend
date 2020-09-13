@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
 
   isLoggedIn: Boolean = false;
 
+  jwt:String;
+  currentUser:Number;
+
    //For Google Maps
   lat = 40.730610;
   lng = -73.935242;
@@ -39,13 +42,29 @@ export class HomeComponent implements OnInit {
     });
 
     //Assign token to a variable (jwt)
-    let jwt = localStorage.getItem("token");
+    this.jwt = localStorage.getItem("token");
 
     //Determines if user is logged in or not
-    this.isLoggedIn = (jwt) ? true : false;
+    this.isLoggedIn = (this.jwt) ? true : false;
 
-    //ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
-   // localStorage.removeItem("token");
+    //IF USER IS LOGGED IN, PULL USER DATA FROM TOKEN
+    if(this.isLoggedIn == true){
+      //Separate the payload from the other items in the token
+      let jwtData = this.jwt.split('.')[1];
+      
+      //Decode token and assign decoded content to 'decodedJwtData'
+      let decodedJwtJsonData = atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      
+      //Pull User ID from decoded payload
+      this.currentUser = decodedJwtData.user_id;
+
+      console.log(this.currentUser);
+    }
+
+
+    // ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
+      // localStorage.removeItem("token");
 
   }
 
@@ -54,11 +73,19 @@ export class HomeComponent implements OnInit {
       console.log(response);
       
     //Pull User ID from response
-      let currentUser = response.user_id;
+      this.currentUser = response.user_id;
 
-     this.router.navigate([`/profile/${currentUser}`]);
+     this.router.navigate([`/profile/${this.currentUser}`]);
 
    });
+  }
+
+  gotoUser(){
+    this.router.navigate([`/profile/${this.currentUser}`]);    
+  }
+
+  gotoMyPosts(){
+    this.router.navigateByUrl('/myposts');    
   }
 
 
@@ -67,24 +94,24 @@ export class HomeComponent implements OnInit {
       localStorage.setItem("token", response.token);
       
       //Assign token to a variable (jwt)
-      let jwt = localStorage.getItem("token");
+      this.jwt = localStorage.getItem("token");
       
       //Separate the payload from the other items in the token
-      let jwtData = jwt.split('.')[1];
+      let jwtData = this.jwt.split('.')[1];
       
       //Decode token and assign decoded content to 'decodedJwtData'
       let decodedJwtJsonData = atob(jwtData);
       let decodedJwtData = JSON.parse(decodedJwtJsonData);
       
       //Pull User ID from decoded payload
-      let currentUser = decodedJwtData.user_id;
+      this.currentUser = decodedJwtData.user_id;
 
-      console.log(currentUser);
+      console.log(this.currentUser);
 
       //Determines if user is logged in or not
-      this.isLoggedIn = (jwt) ? true : false;
+      this.isLoggedIn = (this.jwt) ? true : false;
 
-      this.router.navigate([`/profile/${currentUser}`]);
+      this.router.navigate([`/profile/${this.currentUser}`]);
 
     });
   }
