@@ -88,6 +88,11 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/myposts');    
   }
 
+  logoutUser(){
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
 
   loginUser(){
     this.userService.loginUser(this.regUser).subscribe(response => {

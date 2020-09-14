@@ -4,17 +4,21 @@
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="../">Browse <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../profile">My Profile <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../myposts">My Posts <span class="sr-only"></span></a>
-        </li>
-    </ul>
+        <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="goHome()">Browse</button>
+            </li>
+    
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
+            </li>
+    
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
+            </li>
+        </ul>
+
     <ul class="navbar-nav mr-right">
         <li class="nav-item">
         <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
@@ -22,6 +26,7 @@
     </ul>
     </div>
 </nav>
+
 <div class="container mx-auto" id="mainContent">
     <div class="row mt-5">
         <!--ACCOUNT INFORMATION-->

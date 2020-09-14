@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Post } from '../../models/post';
@@ -16,8 +15,9 @@ export class MypostsComponent implements OnInit {
   posts: Post[] = [];
 
   userID: number;
-
-  currentUser: User = new User();
+  isLoggedIn:Boolean;
+  currentUser: Number;
+  jwt:String;
 
 
   constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
@@ -28,16 +28,45 @@ export class MypostsComponent implements OnInit {
       this.posts = response;
       console.log(response);
     });
-}
 
+    //Assign token to a variable (jwt)
+    this.jwt = localStorage.getItem("token");
 
-    btnClick = function () {
-      this.router.navigateByUrl('/');
-    };
+    //Determines if user is logged in or not
+    this.isLoggedIn = (this.jwt) ? true : false;
 
-    logoutUser = function () {
-      this.router.navigateByUrl('/');
+    //IF USER IS LOGGED IN, PULL USER DATA FROM TOKEN
+    if(this.isLoggedIn == true){
+      //Separate the payload from the other items in the token
+      let jwtData = this.jwt.split('.')[1];
+      
+      //Decode token and assign decoded content to 'decodedJwtData'
+      let decodedJwtJsonData = atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      
+      //Pull User ID from decoded payload
+      this.currentUser = decodedJwtData.user_id;
+
     }
+  }
+
+
+  gotoUser(){
+    this.router.navigate([`/profile/${this.currentUser}`]);    
+  }
+
+  gotoMyPosts(){
+    this.router.navigateByUrl('/myposts');    
+  }
+
+  goHome(){
+    this.router.navigateByUrl('/');
+  }
+
+  logoutUser(){
+    localStorage.removeItem("token");
+    this.router.navigateByUrl('/');
+  }
 
 
   }

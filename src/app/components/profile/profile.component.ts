@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   currentUser: User = new User();
-
   userID: number;
 
   constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
@@ -30,6 +29,18 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  gotoUser(){
+    this.router.navigate([`/profile/${this.currentUser}`]);    
+  }
+
+  gotoMyPosts(){
+    this.router.navigateByUrl('/myposts');    
+  }
+  
+  goHome(){
+    this.router.navigateByUrl('/');
+  }
+
   updateUser() {
     this.userService.updateUser(this.userID, this.currentUser).subscribe(response => {
       console.log(response);
@@ -38,6 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   logoutUser = function () {
+    localStorage.removeItem("token");
     this.router.navigateByUrl('/');
   }
 
