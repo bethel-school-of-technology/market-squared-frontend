@@ -32,7 +32,7 @@
         <!--ACCOUNT INFORMATION-->
         <div class="col-12 px-2">
             <div class="row form-inline">
-                <div class="col-6 text-left"><h4 class="mb-0">Bunch o' Books</h4></div>
+                <div class="col-6 text-left"><h4 class="mb-0">{{currentPost.title}}</h4></div>
                 <div class="col-6 text-right"><button type="button" id="postCreate" class="btn btn-primary text-right">Contact Seller</button></div>
             </div>
         </div>
@@ -47,35 +47,35 @@
                 <p class="mb-2" style="font-weight:600;">Seller:</p>
             </div>
             <div class="col-md-9 col-sm-12 mb-3 text-left">
-                <p id="postSeller">UserName01</p>
+                <p id="postSeller">{{currentPost.user.username}}</p>
             </div>
             <!--CATEGORY-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Category:</p>
             </div>
             <div class="col-md-9 col-sm-12 mb-3 text-left">
-                <p id="postCat">Books</p>
+                <p id="postCat">{{currentPost.category}}</p>
             </div>
             <!--PRICE-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Price:</p>
             </div>
             <div class="col-md-9 col-sm-12 mb-3 text-left">
-                <p id="postPrice">$10.99</p>
+                <p id="postPrice">${{currentPost.price}}</p>
             </div>
             <!--LOCATION-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Location:</p>
             </div>
             <div class="col-md-9 col-sm-12 mb-3 text-left">
-                <p id="postLocation">1234 Way Drive, Fort Worth, TX, 01234</p>
+                <p id="postLocation">{{currentPost.user.address}}</p>
             </div>
             <!--DESCRIPTION-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Description:</p>
             </div>
             <div class="col-md-9 col-sm-12 mb-3 text-left">
-                <p id="postDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut dui a ante ultricies ornare. Donec quam leo, dignissim sit amet mi non, iaculis porta enim.</p>
+                <p id="postDesc">{{currentPost.description}}</p>
             </div>
         </div>
 </div>
