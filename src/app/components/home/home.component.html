@@ -151,28 +151,6 @@
 
     </div>
 </div>
-
-<h1>Testing</h1>
-<ul *ngIf='users'>
-
-<li *ngFor='let user of users'>
-    <div>First Name: {{user.first_name}}</div>
-    <div>Last Name: {{user.last_name}}</div>
-    <div>Username: {{user.username}}</div>
-</li>
-</ul>
-
-<ul *ngIf='posts'>
-
-    <li *ngFor='let post of posts'>
-        <div>Title: {{post.title}}</div>
-        <div>User: {{post.user_id}}</div>
-        <div>Category: {{post.category}}</div>
-        <div>Price: {{post.price}}</div>
-        <div>Description: {{post.description}}</div>
-    </li>
-    </ul>
-
     <div class="container">
         <div class="form-group">
           <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
