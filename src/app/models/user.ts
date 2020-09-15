@@ -1,3 +1,5 @@
+import { Post } from './post';
+
 export class User {
   user_id: number;
   username: string;
@@ -10,4 +12,5 @@ export class User {
   state: string;
   zip_code: number;
   token: string;
+  posts: Post;
 }

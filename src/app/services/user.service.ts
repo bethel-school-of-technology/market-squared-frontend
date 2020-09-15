@@ -45,8 +45,8 @@ export class UserService {
   }
  
   // We need a way to list all the posts/listings (READ)
-  getMyPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.indexURL}/myposts`);
+  getMyPosts(reqID: number): Observable<any> {
+    return this.http.get<any>(`${this.indexURL}/myposts/${reqID}`);
   }
 
 // We need a way to see a single post/listing (READ)

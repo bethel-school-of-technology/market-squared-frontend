@@ -24,17 +24,17 @@ export class ProfileComponent implements OnInit {
 
     // Fetch user corresponding to the ID
     this.userService.getOneUser(this.userID).subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.currentUser = response;
     });
   }
 
   gotoUser(){
-    this.router.navigate([`/profile/${this.currentUser}`]);    
+    this.router.navigate([`/profile/${this.userID}`]);
   }
 
   gotoMyPosts(){
-    this.router.navigateByUrl('/myposts');    
+    this.router.navigate([`/myposts/${this.userID}`]);   
   }
   
   goHome(){

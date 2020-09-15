@@ -57,7 +57,7 @@ export class PostComponent implements OnInit {
   }
 
   gotoMyPosts(){
-    this.router.navigateByUrl('/myposts');    
+    this.router.navigate([`/myposts/${this.currentUser}`]);  
   }
 
   goHome(){

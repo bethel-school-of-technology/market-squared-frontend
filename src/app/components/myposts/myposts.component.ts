@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/user';
 import { Post } from '../../models/post';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MypostsComponent implements OnInit {
   posts: Post[] = [];
-
+  
   userID: number;
   isLoggedIn:Boolean;
   currentUser: Number;
@@ -23,11 +22,6 @@ export class MypostsComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-
-    this.userService.getMyPosts().subscribe(response => {
-      this.posts = response;
-      console.log(response);
-    });
 
     //Assign token to a variable (jwt)
     this.jwt = localStorage.getItem("token");
@@ -47,6 +41,17 @@ export class MypostsComponent implements OnInit {
       //Pull User ID from decoded payload
       this.currentUser = decodedJwtData.user_id;
 
+      // Extract ID from URL
+      this.userID = parseInt(this.actRoute.snapshot.paramMap.get('id'));
+      //console.log(this.userID);
+
+      // Fetch posts corresponding to the ID
+      this.userService.getMyPosts(this.userID).subscribe(response => {
+        //console.log(response.posts);
+        this.posts = response.posts;
+      });
+
+
     }
   }
 
@@ -56,7 +61,7 @@ export class MypostsComponent implements OnInit {
   }
 
   gotoMyPosts(){
-    this.router.navigateByUrl('/myposts');    
+    this.router.navigate([`/myposts/${this.currentUser}`]);  
   }
 
   goHome(){
