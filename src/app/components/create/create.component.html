@@ -4,23 +4,29 @@
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="../">Browse <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../profile">My Profile <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../myposts">My Posts <span class="sr-only">(current)</span></a>
-        </li>
-    </ul>
+        <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item" *ngIf="isLoggedIn">
+                <button type="button" class="btn btn-dark" (click)="goHome()" >Browse</button>
+            </li>
+    
+            <li class="nav-item" *ngIf="isLoggedIn">
+                <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
+            </li>
+    
+            <li class="nav-item" *ngIf="isLoggedIn">
+                <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
+            </li>
+        </ul>
     <ul class="navbar-nav mr-right">
-        <li class="nav-item">
-        <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
+
+        <li>
+            <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
         </li>
+
     </ul>
     </div>
+   
 </nav>
 <div class="container mx-auto" id="mainContent">
     <div class="row mt-5">
@@ -28,7 +34,11 @@
         <div class="col-12 px-2">
             <div class="row form-inline">
                 <div class="col-6 text-left"><h4 class="mb-0">Create Post</h4></div>
-                <div class="col-6 text-right"><button type="button" id="postCreate" class="btn btn-primary text-right">Create Post</button></div>
+
+                
+
+                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create" class="btn btn-success">Create Post</button></div>
+
             </div>
         </div>
         <div class="col-12 px-2">
@@ -72,13 +82,27 @@
             </div>
             <div class="col-12 mb-2">
 
-                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create"
-                    class="btn btn-outline-success text-right">Create Post</button></div>
 
+                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create"
+                    class="btn btn-outline-success text-right">Create Post</button></div>                                          
+
+               
                 <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
                 <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
+
             </div>
             <div class="col-12 px-2">
                 <hr class="mb-4">
             </div>
+            <form class="form-horizontal" (ngSubmit) = "createPost()">
+                <input class="form-control form-fields" type="text" name="title" placeholder="Title" [(ngModel)]="newPost.title">
+                <input class="form-control form-fields" type="text" name="category" placeholder="Category" [(ngModel)]="newPost.category">
+                <input class="form-control form-fields" type="text" name="price" placeholder="Price" [(ngModel)]="newPost.price">
+                <input class="form-control form-fields" type="text" name="description" placeholder="Description" [(ngModel)]="newPost.description">
+                <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Create">
+            </form>
+           
         </div>
+
+        
+        

@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
-import { CreateComponent } from './components/create/create.component';
+import { CreateComponent } from "./components/create/create.component";
 import { ErrorComponent } from './components/error/error.component';
 
 
@@ -15,16 +15,15 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
 
     //localhost:4200/profile
-    //will need to add :id to end of profile to route to specific profile
     { path: 'profile/:id', component: ProfileComponent },
 
     //localhost:4200/myposts
-    { path: 'myposts', component: MypostsComponent },
+    { path: 'myposts/:id', component: MypostsComponent },
 
     //localhost:4200/post
     { path: 'post', component: PostComponent },
 
-    //localhost:4200/post/1
+    //localhost:4200/post/postId
     { path: 'post/:postId', component: PostComponent },
 
     //localhost:4200/create

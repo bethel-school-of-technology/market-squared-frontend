@@ -6,32 +6,25 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-        <a class="nav-link" href="#">Browse <span class="sr-only">(current)</span></a>
+        
+        <li class="nav-item" *ngIf="isLoggedIn">
+            <button type="button" class="btn btn-dark" disabled >Browse</button>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="../profile">My Profile <span class="sr-only"></span></a>
+        <li class="nav-item" *ngIf="isLoggedIn">
+            <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="../myposts">My Posts <span class="sr-only"></span></a>
+        <li class="nav-item" *ngIf="isLoggedIn">
+            <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
         </li>
     </ul>
 
     <ul class="navbar-nav mr-right">
 
-        <li class="nav-item dropdown mr-3">
+        <li class="nav-item dropdown mr-3" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
-
-
-
-            <!--<form class="form-horizontal" method="post" accept-charset="UTF-8">
-                <input class="form-control form-fields" type="text" name="username" placeholder="Username">
-                <input class="form-control form-fields" type="text" name="password" placeholder="Password">
-                <input class="btn btn-secondary" style="width:100%;" type="button" name="submit" value="Login">
-            </form>-->
 
             <form class="form-horizontal" (ngSubmit) = "loginUser()">
 
@@ -48,7 +41,7 @@
         </div>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
 
@@ -73,10 +66,11 @@
         </div>
         </li>
 
+        <li *ngIf="isLoggedIn">
+            <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" (click)="logoutUser()" value="Logout">
+        </li>
+
     </ul>
-    <li>
-      <input class="btn btn-secondary" style="width:auto;" type="submit" name="submit" value="Logout">
-    </li>
 
 
     </div>
@@ -130,127 +124,7 @@
 <div class="container mx-auto" id="mainContent">
     <div class="row">
 
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem;">
-
-        <div class="card-body">
-            <div class="card-text">
-
-            <div class="row">
-
-                <div class="col-3 pl-4 cat-books"><span>N/A</span></div>
-                <div class="col"><h5>Bunch o' Books<br>$10.99</h5></div>
-
-            </div>
-
-            <p><i>UserName01</i> | <i>Fort Worth, TX</i></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut dui a ante ultricies ornare. Donec quam leo, dignissim sit amet mi non, iaculis porta enim.</p>
-            <p class="text-right"><a href="../post/">View post &#187;</a></p>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem; height:100%;">
-        <div class="card-body d-flex flex-column">
-            <div class="card-text">
-
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-music"><span>N/A</span></div>
-                    <div class="col"><h5>Classic Cassettes<br>$5.00</h5></div>
-
-                </div>
-
-                <p><i>UserName02</i> | <i>Keller, TX</i></p>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-            </div>
-
-            <div class="mt-auto">
-                <p class="text-right"><a href="../post/">View post &#187;</a></p>
-            </div>
-
-        </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem; height:100%;">
-        <div class="card-body d-flex flex-column">
-            <div class="card-text">
-
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-movies"><span>N/A</span></div>
-                    <div class="col"><h5>Mid-90's Movies<br>$20.50</h5></div>
-
-                </div>
-
-                <p><i>UserName03</i> | <i>Southlake, TX</i></p>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-            </div>
-
-            <div class="mt-auto">
-                <p class="text-right"><a href="../post/">View post &#187;</a></p>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem; height:100%">
-        <div class="card-body d-flex flex-column">
-            <div class="card-text">
-
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-games"><span>N/A</span></div>
-                    <div class="col"><h5>Gaming Gear<br>$75.00</h5></div>
-
-                </div>
-
-                <p><i>UserName04</i> | <i>Azle, TX</i></p>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-            </div>
-
-            <div class="mt-auto">
-                <p class="text-right"><a href="../post/">View post &#187;</a></p>
-            </div>
-
-        </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
-        <div class="card" style="width: 20rem; height:100%">
-        <div class="card-body d-flex flex-column">
-            <div class="card-text">
-
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-furniture"><span>N/A</span></div>
-                    <div class="col"><h5>Comfy Chairs<br>$25.00</h5></div>
-
-                </div>
-
-                <p><i>UserName05</i> | <i>Westlake, TX</i></p>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-            </div>
-
-            <div class="mt-auto">
-                <p class="text-right"><a href="../post/">View post &#187;</a></p>
-            </div>
-
-        </div>
-        </div>
-    </div>
-
-    <div class="col mb-4">
+    <div class="col mb-4" *ngFor='let post of posts'>
         <div class="card" style="width: 20rem; height:100%;">
         <div class="card-body d-flex flex-column">
             <div class="card-text">
@@ -258,17 +132,17 @@
                 <div class="row">
 
                     <div class="col-3 pl-4 cat-toys"><span style="color:#666;">N/A</span></div>
-                    <div class="col"><h5>Toddler Toys<br>$15.00</h5></div>
+                    <div class="col"><h5>{{post.title}}<br>${{post.price}}</h5></div>
 
                 </div>
 
-                <p><i>UserName05</i> | <i>N. Richland Hills, TX</i></p>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p><i>{{post.user.username}}</i> | <i>{{post.category}}</i></p>
+                <p>{{post.description}}</p>
 
             </div>
 
             <div class="mt-auto">
-                <p class="text-right"><a href="../post/">View post &#187;</a></p>
+                <p class="text-right"><a [routerLink]="['../post', post.post_id]">View post &#187;</a></p>
             </div>
 
         </div>

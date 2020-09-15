@@ -8,27 +8,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
+        
             <li class="nav-item">
-                <a class="nav-link" href="../">Browse <span class="sr-only"></span></a>
+                <button type="button" class="btn btn-dark" (click)="goHome()">Browse</button>
             </li>
-
+    
             <li class="nav-item">
-                <a class="nav-link" href="../profile">My Profile <span class="sr-only">(current)</span></a>
+                <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../myposts">My Posts <span class="sr-only"></span></a>
+    
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" disabled (click)="gotoMyPosts()">My Posts</button>
             </li>
-
         </ul>
 
         <ul class="navbar-nav mr-right">
 
-            <li class="nav-item">
-                <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
+            <li>
+                <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
             </li>
-
+    
         </ul>
 
 
@@ -60,8 +59,15 @@
         </div>
 
 
-         
-            <div class="row" *ngFor='let post of posts'>
+        
+        <div class="row" *ngFor='let post of posts'>
+
+            <div class="col col-sm-12 col-md-6 col-lg-3 mb-2">
+                <label for="postUserId">USER ID</label>
+                <input type="text"  class="form-control mb-2" placeholder="User ID"
+                [(ngModel)]="post.user_id">
+            </div>
+
             <div class="col col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postTitle">Title</label>
                 <input type="text"  class="form-control mb-2" placeholder="Post Title"
@@ -84,13 +90,14 @@
                 <input type="text"  class="form-control mb-2" placeholder="Category"
                 [(ngModel)]="post.category">
             </div>
+
             <div class="col-12 mb-5">
                 <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
                 <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
             </div>
-            <div>
-            </div>
+
     </div>
 </div>
+
 
 </div>

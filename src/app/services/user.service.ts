@@ -26,14 +26,11 @@ export class UserService {
   }
 
   // We need a way to get a single user (READ)
-  // Component needs to send an ID for the user
-
   getOneUser(reqID: number): Observable<User> {
     return this.http.get<User>(`${this.indexURL}/profile/${reqID}`);
   }
 
   // We need a way to create a new user (CREATE)
-
   createNewUser(newUser: User): Observable<User> {
     return this.http.post<User>(this.indexURL, newUser);
   }
@@ -44,11 +41,9 @@ export class UserService {
   }
 
   // We need a way to edit the user (UPDATE)
-  // Component needs to provide the ID as well as the updated user info
   updateUser(editID: number, edittedInfo: User): Observable<User> {
     return this.http.put<User>(`${this.indexURL}/profile/${editID}`, edittedInfo);
   }
-
 
   // We need a way to create a listing (CREATE)
   createPost(): Observable<Post[]> {
@@ -56,13 +51,13 @@ export class UserService {
   }
  
   // We need a way to list all the posts/listings (READ)
-  getMyPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.indexURL}/myposts`);
+  getMyPosts(reqID: number): Observable<any> {
+    return this.http.get<any>(`${this.indexURL}/myposts/${reqID}`);
   }
 
-  // We need a way to list all the posts/listings (READ)
-  getOnePost(reqID: number): Observable<Post> {
-    return this.http.get<Post>(`${this.postURL}/${reqID}`);
+// We need a way to see a single post/listing (READ)
+  getOnePost(reqID: number): Observable<any> {
+    return this.http.get<any>(`${this.indexURL}/post/${reqID}`);
   }
 
   // We need a way to list all the posts/listings (READ)
@@ -70,20 +65,6 @@ export class UserService {
     return this.http.get<any>(this.postURL);
   }
 
-   // Get Current Location Coordinates
-    setCurrentLocation() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 15;
-      });
-    }
-  }
-
-
-
-  // We need a way to see a single post/listing (READ)
   // We need a way to edit the listing (UPDATE)
   // We need a way to delete the listing (DELETE)
 

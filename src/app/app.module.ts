@@ -10,7 +10,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
-import { CreateComponent } from './components/create/create.component';
+import { CreateComponent } from "./components/create/create.component";
 import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({

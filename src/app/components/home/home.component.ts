@@ -20,6 +20,11 @@ export class HomeComponent implements OnInit {
   posts: Post[];
   regPost: Post = new Post();
 
+  isLoggedIn: Boolean = false;
+
+  jwt:String;
+  currentUser:Number;
+
    //For Google Maps
    latitude: number;
    longitude: number;
@@ -48,7 +53,32 @@ export class HomeComponent implements OnInit {
       this.posts = response;
       console.log(response);
     });
+
+    //Assign token to a variable (jwt)
+    this.jwt = localStorage.getItem("token");
+
+    //Determines if user is logged in or not
+    this.isLoggedIn = (this.jwt) ? true : false;
+
+    //IF USER IS LOGGED IN, PULL USER DATA FROM TOKEN
+    if(this.isLoggedIn == true){
+      //Separate the payload from the other items in the token
+      let jwtData = this.jwt.split('.')[1];
+      
+      //Decode token and assign decoded content to 'decodedJwtData'
+      let decodedJwtJsonData = atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      
+      //Pull User ID from decoded payload
+      this.currentUser = decodedJwtData.user_id;
+
+      console.log(this.currentUser);
+    }
+
+    // ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
+      // localStorage.removeItem("token");
     
+    //Google Maps
      //load Places Autocomplete
      this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -79,8 +109,26 @@ export class HomeComponent implements OnInit {
   createNewUser() {
    this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-     this.router.navigate(['/profile/:id']);
+      
+    //Pull User ID from response
+      this.currentUser = response.user_id;
+
+     this.router.navigate([`/profile/${this.currentUser}`]);
+
    });
+  }
+
+  gotoUser(){
+    this.router.navigate([`/profile/${this.currentUser}`]);    
+  }
+
+  gotoMyPosts(){
+    this.router.navigate([`/myposts/${this.currentUser}`]);  
+  }
+
+  logoutUser(){
+    localStorage.removeItem("token");
+    window.location.reload();
   }
 
 
@@ -89,21 +137,24 @@ export class HomeComponent implements OnInit {
       localStorage.setItem("token", response.token);
       
       //Assign token to a variable (jwt)
-      let jwt = localStorage.getItem("token");
+      this.jwt = localStorage.getItem("token");
       
       //Separate the payload from the other items in the token
-      let jwtData = jwt.split('.')[1];
+      let jwtData = this.jwt.split('.')[1];
       
       //Decode token and assign decoded content to 'decodedJwtData'
       let decodedJwtJsonData = atob(jwtData);
       let decodedJwtData = JSON.parse(decodedJwtJsonData);
       
       //Pull User ID from decoded payload
-      let currentUser = decodedJwtData.user_id;
+      this.currentUser = decodedJwtData.user_id;
 
-      console.log(currentUser);
+      console.log(this.currentUser);
 
-      this.router.navigateByUrl('/myposts');
+      //Determines if user is logged in or not
+      this.isLoggedIn = (this.jwt) ? true : false;
+
+      this.router.navigate([`/profile/${this.currentUser}`]);
 
     });
   }
