@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'profile/:id', component: ProfileComponent },
 
     //localhost:4200/myposts
-    { path: 'myposts', component: MypostsComponent },
+    { path: 'myposts/:id', component: MypostsComponent },
 
     //localhost:4200/post
     { path: 'post', component: PostComponent },

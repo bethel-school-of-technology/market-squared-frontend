@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
   }
 
   gotoMyPosts(){
-    this.router.navigateByUrl('/myposts');    
+    this.router.navigate([`/myposts/${this.currentUser}`]);  
   }
 
   logoutUser(){
