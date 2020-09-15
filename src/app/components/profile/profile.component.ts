@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
   currentUser: User = new User();
   userID: number;
 
+  isUpdated: Boolean = false;
+
   constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -43,9 +45,13 @@ export class ProfileComponent implements OnInit {
 
   updateUser() {
     this.userService.updateUser(this.userID, this.currentUser).subscribe(response => {
-      console.log(response);
-      //this.router.navigate(['']);
+      this.isUpdated = true;
+      console.log(this.isUpdated);
     });
+  }
+
+  resetAlert() {
+    this.isUpdated = false;
   }
 
   logoutUser = function () {

@@ -44,6 +44,13 @@
 
 <div class="container mx-auto" id="mainContent">
 
+    <div class="alert alert-dismissible alert-success fade show" role="alert" *ngIf="isUpdated">
+        Profile successfully updated!
+        <button type="button" class="close" (click)="resetAlert()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
     <form class="row mt-5" (ngSubmit) = "updateUser()">
 
         <!--ACCOUNT INFORMATION-->
