@@ -4,7 +4,8 @@ import { User } from '../../models/user';
 import { Post } from '../../models/post';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
-import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { MapsAPILoader } from '@agm/core';
+
 
 @Component({
   selector: 'app-home',
@@ -30,8 +31,12 @@ export class HomeComponent implements OnInit {
   public searchElementRef: ElementRef;
 
 
-  constructor(private userService: UserService, private router: Router, private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) { }
+  constructor(
+    private userService: UserService, 
+    private router: Router, 
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone
+    ) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(response => {
@@ -43,8 +48,34 @@ export class HomeComponent implements OnInit {
       this.posts = response;
       console.log(response);
     });
+    
+     //load Places Autocomplete
+     this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+    
   }
 
+  //Not in ngOnInit
   createNewUser() {
    this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
@@ -77,33 +108,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-     //load Places Autocomplete
-     this.mapsAPILoader.load().then(() => {
-      this.setCurrentLocation();
-      this.geoCoder = new google.maps.Geocoder;
-
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-          //verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
-  }
-
-  // Get Current Location Coordinates
-  this.userService.setCurrentLocation() {
+   // Get Current Location Coordinates
+   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
@@ -115,7 +121,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  markerDragEnd($event: MouseEvent) {
+  markerDragEnd($event: any) {
     console.log($event);
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
@@ -139,5 +145,6 @@ export class HomeComponent implements OnInit {
 
     });
   }
+
 
 }
