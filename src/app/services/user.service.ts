@@ -12,6 +12,12 @@ export class UserService {
   indexURL: string = 'http://localhost:3001';
   postURL: string = 'http://localhost:3001/posts'
 
+     //For Google Maps
+     latitude: number;
+     longitude: number;
+     zoom:number;
+  
+
   constructor(private http: HttpClient) { }
 
   // We need a way to find users (READ)
