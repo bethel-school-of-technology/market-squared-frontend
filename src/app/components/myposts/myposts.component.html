@@ -49,7 +49,7 @@
                 <div class="col-6 text-left">
                     <h4 class="mb-0"><span>My Posts</span></h4>
                 </div>
-                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create"
+                <div class="col-6 text-right"><button type="button" [routerLink]="'/create'" id="create"
                         class="btn btn-outline-success text-right">Create Post</button></div>
 
             </div>
@@ -82,7 +82,8 @@
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postPrice">Price</label>
-                <input type="text"  class="form-control mb-2" placeholder="Price" [(ngModel)]="post.price">
+                <input type="text"  class="form-control mb-2" placeholder="Price" 
+                [(ngModel)]="post.price">
             </div>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">

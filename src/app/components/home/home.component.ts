@@ -22,14 +22,14 @@ export class HomeComponent implements OnInit {
 
   isLoggedIn: Boolean = false;
 
-  jwt:String;
-  currentUser:Number;
+  jwt: String;
+  currentUser: Number;
 
-   //For Google Maps
-   latitude: number;
-   longitude: number;
-   zoom:number;
-   address: string;
+  //For Google Maps
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
   private geoCoder;
 
   @ViewChild('search')
@@ -37,11 +37,11 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService, 
-    private router: Router, 
+    private userService: UserService,
+    private router: Router,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(response => {
@@ -61,14 +61,14 @@ export class HomeComponent implements OnInit {
     this.isLoggedIn = (this.jwt) ? true : false;
 
     //IF USER IS LOGGED IN, PULL USER DATA FROM TOKEN
-    if(this.isLoggedIn == true){
+    if (this.isLoggedIn == true) {
       //Separate the payload from the other items in the token
       let jwtData = this.jwt.split('.')[1];
-      
+
       //Decode token and assign decoded content to 'decodedJwtData'
       let decodedJwtJsonData = atob(jwtData);
       let decodedJwtData = JSON.parse(decodedJwtJsonData);
-      
+
       //Pull User ID from decoded payload
       this.currentUser = decodedJwtData.user_id;
 
@@ -76,11 +76,11 @@ export class HomeComponent implements OnInit {
     }
 
     // ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
-      // localStorage.removeItem("token");
-    
+    // localStorage.removeItem("token");
+
     //Google Maps
-     //load Places Autocomplete
-     this.mapsAPILoader.load().then(() => {
+    //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
 
@@ -102,50 +102,50 @@ export class HomeComponent implements OnInit {
         });
       });
     });
-    
+
   }
 
   //Not in ngOnInit
   createNewUser() {
-   this.userService.createNewUser(this.newUser).subscribe(response => {
+    this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-      
-    //Pull User ID from response
+
+      //Pull User ID from response
       this.currentUser = response.user_id;
 
-     this.router.navigate([`/profile/${this.currentUser}`]);
+      this.router.navigate([`/profile/${this.currentUser}`]);
 
-   });
+    });
   }
 
-  gotoUser(){
-    this.router.navigate([`/profile/${this.currentUser}`]);    
+  gotoUser() {
+    this.router.navigate([`/profile/${this.currentUser}`]);
   }
 
-  gotoMyPosts(){
-    this.router.navigate([`/myposts/${this.currentUser}`]);  
+  gotoMyPosts() {
+    this.router.navigate([`/myposts/${this.currentUser}`]);
   }
 
-  logoutUser(){
+  logoutUser() {
     localStorage.removeItem("token");
     window.location.reload();
   }
 
 
-  loginUser(){
+  loginUser() {
     this.userService.loginUser(this.regUser).subscribe(response => {
       localStorage.setItem("token", response.token);
-      
+
       //Assign token to a variable (jwt)
       this.jwt = localStorage.getItem("token");
-      
+
       //Separate the payload from the other items in the token
       let jwtData = this.jwt.split('.')[1];
-      
+
       //Decode token and assign decoded content to 'decodedJwtData'
       let decodedJwtJsonData = atob(jwtData);
       let decodedJwtData = JSON.parse(decodedJwtJsonData);
-      
+
       //Pull User ID from decoded payload
       this.currentUser = decodedJwtData.user_id;
 
@@ -159,8 +159,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-   // Get Current Location Coordinates
-   private setCurrentLocation() {
+  // Get Current Location Coordinates
+  private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
