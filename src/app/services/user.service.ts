@@ -45,9 +45,11 @@ export class UserService {
     return this.http.put<User>(`${this.indexURL}/profile/${editID}`, edittedInfo);
   }
 
+
+
   // We need a way to create a listing (CREATE)
-  createNewPost(newPost: Post): Observable<Post> {
-    return this.http.post<Post>(this.indexURL, newPost);
+  createNewPost( newPost: Post): Observable<Post> {
+    return this.http.post<Post>(`${this.indexURL}/create`, newPost);
   }
 
   // We need a way to list all the posts/listings (READ)
