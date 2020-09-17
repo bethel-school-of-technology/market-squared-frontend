@@ -12,6 +12,7 @@ import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
 import { CreateComponent } from "./components/create/create.component";
 import { ErrorComponent } from './components/error/error.component';
+import { EditpostComponent } from './editpost/editpost.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { ErrorComponent } from './components/error/error.component';
     MypostsComponent,
     PostComponent,
     CreateComponent,
-    ErrorComponent
+    ErrorComponent,
+    EditpostComponent
   ],
 
   providers: [],
