@@ -12,7 +12,7 @@ import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
 import { CreateComponent } from "./components/create/create.component";
 import { ErrorComponent } from './components/error/error.component';
-import { EditpostComponent } from './editpost/editpost.component';
+import { EditpostComponent } from './components/editpost/editpost.component';
 
 @NgModule({
   imports: [
