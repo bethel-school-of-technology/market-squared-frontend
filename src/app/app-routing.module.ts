@@ -7,6 +7,7 @@ import { MypostsComponent } from './components/myposts/myposts.component';
 import { PostComponent } from './components/post/post.component';
 import { CreateComponent } from "./components/create/create.component";
 import { ErrorComponent } from './components/error/error.component';
+import { EditpostComponent } from './components/editpost/editpost.component'
 
 
 const routes: Routes = [
@@ -25,6 +26,9 @@ const routes: Routes = [
 
     //localhost:4200/post/postId
     { path: 'post/:postId', component: PostComponent },
+
+    //localhost:4200/editpost/postId
+    { path: 'editpost/:id', component: EditpostComponent},
 
     //localhost:4200/create
     { path: 'create', component: CreateComponent },

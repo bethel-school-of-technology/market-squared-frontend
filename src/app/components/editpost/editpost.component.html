@@ -1,1 +1,91 @@
-<p>editpost works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="./"><img src="../assets/logo.svg" style="width:45px;"><span class="vl ml-3 mr-2"></span> MARKET SQUARED</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="goHome()">Browse</button>
+            </li>
+    
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
+            </li>
+    
+            <li class="nav-item">
+                <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
+            </li>
+        </ul>
+
+    <ul class="navbar-nav mr-right">
+
+        <!--<li class="nav-item">
+            <button type="button" class="btn btn-outline-light my-2 my-sm-0" (click)="logoutUser();"> Log Out </button>    
+
+         <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" routerLink="/home" routerLinkActive="active"id="logoutBut">Logout</button> 
+        </li>-->
+
+        <li>
+            <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
+        </li>
+
+    </ul>
+
+        
+
+    </div>
+</nav>
+
+
+
+
+<div class="container mx-auto" id="mainContent">
+
+    <div class="alert alert-dismissible alert-success fade show" role="alert" *ngIf="isUpdated">
+        Post successfully updated!
+        <button type="button" class="close" (click)="resetAlert()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+    <form class="row mt-5" (ngSubmit) = "updatePost()">
+
+        <!--POST INFORMATION-->
+        <div class="col-12 px-2">
+            <div class="row form-inline">
+                
+                <div class="col-6 text-left"><h4 class="mb-0"><span>Post Information for </span><span style="color:#52b176;">{{currentPost.title}}</span></h4></div>
+                <div class="col-6 text-right"><input class="btn btn-outline-primary" style="width:50%;" type="submit" name="submit" value="Save Changes"></div>
+            
+            </div>
+        </div>
+        
+        <div class="col-12 px-2">
+            <hr class="mb-4">
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
+            <label for="postTitle">Title</label>
+            <input id="postTitle" type="text" name="title" class="form-control form-fields mb-2" placeholder="Title" [(ngModel)]="currentPost.title">
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
+            <label for="postDesc">Description</label>
+            <input id="postDesc" type="text" name="description" class="form-control form-fields mb-2" placeholder="Description" [(ngModel)]="currentPost.description">
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
+            <label for="postPrice">Price</label>
+            <input id="postPrice" type="text" name="price" class="form-control form-fields mb-2" placeholder="0.00" [(ngModel)]="currentPost.price">
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
+            <label for="postCat">Category</label>
+            <input id="postCat" type="text" name="category" class="form-control form-fields mb-2" placeholder="Category" [(ngModel)]="currentPost.category">
+        </div>
+
+    </form>
+</div>

@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
     // Fetch user corresponding to the ID
     this.userService.getOneUser(this.userID).subscribe(response => {
-      //console.log(response);
+      console.log(response);
       this.currentUser = response;
     });
   }
@@ -42,11 +42,11 @@ export class ProfileComponent implements OnInit {
   goHome(){
     this.router.navigateByUrl('/');
   }
-
+  
   updateUser() {
     this.userService.updateUser(this.userID, this.currentUser).subscribe(response => {
       this.isUpdated = true;
-      console.log(this.isUpdated);
+      //console.log(this.userID);
     });
   }
 
