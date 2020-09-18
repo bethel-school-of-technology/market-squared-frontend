@@ -31,7 +31,7 @@ const routes: Routes = [
     { path: 'editpost/:id', component: EditpostComponent},
 
     //localhost:4200/create
-    { path: 'create', component: CreateComponent },
+    { path: 'create/:id', component: CreateComponent },
 
     //localhost:4200/error
     { path: 'error', component: ErrorComponent },
