@@ -46,8 +46,8 @@ export class UserService {
   }
 
   // We need a way to create a listing (CREATE)
-  createNewPost( newPost: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.indexURL}/create`, newPost);
+  createNewPost( createID: number, newPost: Post): Observable<Post> {
+    return this.http.post<Post>(`${this.indexURL}/create/${createID}`, newPost);
   }
 
   // We need a way to list all the posts/listings (READ)

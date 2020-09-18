@@ -45,10 +45,14 @@ export class CreateComponent implements OnInit {
                       //Pull User ID from decoded payload
                       this.currentUser = decodedJwtData.user_id;
                     }
+
+                    // Extract ID from URL
+                    this.userID = parseInt(this.actRoute.snapshot.paramMap.get('id'));
+                    console.log(this.userID);
               }
 
   createNewPost() {
-    this.userService.createNewPost(this.newPost).subscribe(response => {
+    this.userService.createNewPost(this.userID, this.newPost).subscribe(response => {
       console.log(response);
 
       this.router.navigate([`/myposts/${this.currentUser}`])

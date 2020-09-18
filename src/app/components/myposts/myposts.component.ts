@@ -64,6 +64,10 @@ export class MypostsComponent implements OnInit {
     this.router.navigate([`/myposts/${this.currentUser}`]);  
   }
 
+  goCreate(){
+    this.router.navigate([`/create/${this.currentUser}`]);  
+  }
+
   goHome(){
     this.router.navigateByUrl('/');
   }
