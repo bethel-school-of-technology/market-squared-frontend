@@ -75,8 +75,10 @@ export class UserService {
     return this.http.put<Post>(`${this.indexURL}/editpost/${editID}`, edittedInfo);
   }
 
-  // We need a way to delete the listing (DELETE)
-
+  // We need a way to delete the post (DELETE)
+  deletePost(deleteID: number): Observable<any> {
+    return this.http.delete<any>(`${this.indexURL}/myposts/${deleteID}`)
+  }
 }
 
 

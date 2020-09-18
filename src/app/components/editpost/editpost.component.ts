@@ -60,6 +60,13 @@ export class EditpostComponent implements OnInit {
     
 }
 
+deletePost(){
+  this.userService.deletePost(this.userID).subscribe(response => {
+    console.log(response);
+    this.router.navigate([`/myposts/${this.currentUser}`])
+})
+}
+
   resetAlert() {
     this.isUpdated = false;
   }
