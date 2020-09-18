@@ -55,7 +55,7 @@ export class CreateComponent implements OnInit {
     this.userService.createNewPost(this.userID, this.newPost).subscribe(response => {
       console.log(response);
 
-      this.router.navigate([`/myposts/${this.currentUser}`])
+      this.router.navigate([`/myposts/${this.currentUser}`]);
 
     });
   }
