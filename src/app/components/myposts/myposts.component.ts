@@ -47,7 +47,7 @@ export class MypostsComponent implements OnInit {
 
       // Fetch posts corresponding to the ID
       this.userService.getMyPosts(this.userID).subscribe(response => {
-        //console.log(response.posts);
+        console.log(response.posts);
         this.posts = response.posts;
       });
 
