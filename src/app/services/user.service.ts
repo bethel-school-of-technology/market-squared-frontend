@@ -45,8 +45,6 @@ export class UserService {
     return this.http.put<User>(`${this.indexURL}/profile/${editID}`, edittedInfo);
   }
 
-
-
   // We need a way to create a listing (CREATE)
   createNewPost( newPost: Post): Observable<Post> {
     return this.http.post<Post>(`${this.indexURL}/create`, newPost);
@@ -67,7 +65,16 @@ export class UserService {
     return this.http.get<any>(this.postURL);
   }
 
-  // We need a way to edit the listing (UPDATE)
+  // We need a way to get a single post to edit (READ)
+  getOneEditPost(reqID: number): Observable<Post> {
+    return this.http.get<Post>(`${this.indexURL}/editpost/${reqID}`);
+  }
+
+  // We need a way to edit the user (UPDATE)
+  updatePost(editID: number, edittedInfo: Post): Observable<Post> {
+    return this.http.put<Post>(`${this.indexURL}/editpost/${editID}`, edittedInfo);
+  }
+
   // We need a way to delete the listing (DELETE)
 
 }

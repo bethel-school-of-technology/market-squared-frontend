@@ -63,38 +63,31 @@
         <div class="row" *ngFor='let post of posts'>
 
             <div class="col col-sm-12 col-md-6 col-lg-3 mb-2">
-                <label for="postUserId">USER ID</label>
-                <input type="text"  class="form-control mb-2" placeholder="User ID"
-                [(ngModel)]="post.user_id">
-            </div>
-
-            <div class="col col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postTitle">Title</label>
-                <input type="text"  class="form-control mb-2" placeholder="Post Title"
+                <input type="text"  class="form-control mb-2" disabled placeholder="Post Title"
                 [(ngModel)]="post.title">
             </div>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postDescription">Description</label>
-                <input type="text"  class="form-control mb-2" placeholder="Description"
+                <input type="text"  class="form-control mb-2" disabled placeholder="Description"
                 [(ngModel)]="post.description">
             </div>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postPrice">Price</label>
-                <input type="text"  class="form-control mb-2" placeholder="Price" 
+                <input type="text"  class="form-control mb-2" disabled placeholder="Price" 
                 [(ngModel)]="post.price">
             </div>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
                 <label for="postCategory">Category</label>
-                <input type="text"  class="form-control mb-2" placeholder="Category"
+                <input type="text"  class="form-control mb-2" disabled placeholder="Category"
                 [(ngModel)]="post.category">
             </div>
 
             <div class="col-12 mb-5">
-                <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
-                <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
+                <button type="button" id="postEdit" class="btn btn-outline-primary" [routerLink]="'/editpost/'+post.post_id">Edit Post</button>
             </div>
 
     </div>
