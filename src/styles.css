@@ -28,10 +28,10 @@ a:active {
 
 }
 
-.cat-toys span {
+.cat-Toys span {
   display: none;
 }
-.cat-toys:after {
+.cat-Toys:after {
   font-family: 'FontAwesome';
   color: #666;  
   font-size: 35px; 
@@ -39,10 +39,10 @@ a:active {
   content: '\f1ae';
 }
 
-.cat-books span {
+.cat-Books span {
   display: none;
 }
-.cat-books:after {
+.cat-Books:after {
   font-family: 'FontAwesome';
   color: #666; 
   font-size: 35px; 
@@ -50,10 +50,10 @@ a:active {
   content: '\f02d';
 }
 
-.cat-music span {
+.cat-Music span {
   display: none;
 }
-.cat-music:after {
+.cat-Music:after {
   font-family: 'FontAwesome';
   color: #666; 
   font-size: 35px; 
@@ -61,10 +61,10 @@ a:active {
   content: '\f001';
 }
 
-.cat-furniture span {
+.cat-Furniture span {
   display: none;
 }
-.cat-furniture:after {
+.cat-Furniture:after {
   font-family: 'FontAwesome';
   color: #666;  
   font-size: 35px; 
@@ -72,10 +72,10 @@ a:active {
   content: '\f015';
 }
 
-.cat-games span {
+.cat-Games span {
   display: none;
 }
-.cat-games:after {
+.cat-Games:after {
   font-family: 'FontAwesome';
   color: #666; 
   font-size: 35px; 
@@ -83,10 +83,10 @@ a:active {
   content: '\f11b';
 }
 
-.cat-movies span {
+.cat-Movies span {
   display: none;
 }
-.cat-movies:after {
+.cat-Movies:after {
   font-family: 'FontAwesome';
   color: #666; 
   font-size: 35px;

@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
     <a class="navbar-brand" href="./"><img src="../assets/logo.svg" style="width:45px;"><span class="vl ml-3 mr-2"></span> MARKET SQUARED</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        
             <li class="nav-item" *ngIf="isLoggedIn">
                 <button type="button" class="btn btn-dark" (click)="goHome()" >Browse</button>
             </li>
@@ -18,46 +19,42 @@
                 <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
             </li>
         </ul>
-    <ul class="navbar-nav mr-right">
 
-        <li>
-            <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
-        </li>
-
-    </ul>
-</div>
+        <ul class="navbar-nav mr-right">
+            <li>
+                <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
+            </li>
+        </ul>
+    </div>
 
 </nav>
+
+<!--CREATE POST-->
 <div class="container mx-auto" id="mainContent">
     <div class="row mt-5">
-        <!--ACCOUNT INFORMATION-->
         <div class="col-12 px-2">
             <div class="row form-inline">
-                <div class="col-6 text-left"><h4 class="mb-0">Create Post</h4></div>
-
-                
-
-                <div class="col-6 text-right"><button type="button" [routerLink]="'../create'" id="create" class="btn btn-success">Create Post</button></div>
-
+                <div class="col-6 text-left">
+                    <h4 class="mb-0">Create Post</h4>
+                </div>
             </div>
         </div>
+
         <div class="col-12 px-2">
             <hr class="mb-4">
         </div>
     
-        <div class="row ml-4 mr-2">
-            <!-- <div class="col-12 mb-4">
-            
-            </div>
+        <form class="row form-horizontal ml-4 mr-2" (ngSubmit) = "createNewPost()">
+
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
-                <label for="postTitle01">Title</label>
-                <input type="text" id="postTitle01" class="form-control mb-2" placeholder="Title" value="Enter Data">
+                <label for="createTitle">Title</label>
+                <input id="createTitle" class="form-control form-fields" type="text" name="title" placeholder="Title" [(ngModel)]="newPost.title">
             </div>
+
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3">
-                <label for="postCat01">Category</label>
-                <select class="form-control custom-select" id="postCat01">
-                    <option selected></option>
-                    <option>Movies</option>
+                <label for="createCategory">Category</label>
+                <select class="form-control custom-select" id="createCategory" name="category" [(ngModel)]="newPost.category">
+                    <option selected="newPost.category=='Movies'">Movies</option>
                     <option>Books</option>
                     <option>Games</option>
                     <option>Furniture</option>
@@ -67,45 +64,27 @@
                     <option>Misc.</option>
                 </select>
             </div>
+
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
-                <label for="postPrice01">Price</label>
+                <label for="createPrice">Price</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">$</span>
+                        <span class="input-group-text" id="basic-addon3">$</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="0.00" value="0.00" id="postPrice01" aria-describedby="basic-addon3">
+                    <input class="form-control form-fields" type="text" name="createPrice" placeholder="0.00" aria-describedby="basic-addon3" [(ngModel)]="newPost.price">
                 </div>
             </div>
-            <div class="col-12 mb-4">
-                <label for="postDesc01">Description</label>
-                <input type="text" id="postDesc01" class="form-control mb-2" placeholder="Description" value="Product Information">
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-2">
+                <label for="createDescriptiom">Description</label>
+                <input id="createDescriptiom" class="form-control form-fields" type="text" name="dewcription" placeholder="Description" [(ngModel)]="newPost.description">
             </div>
+
             <div class="col-12 mb-2">
-
-
-                <button type="button" id="postSave01" class="btn btn-outline-primary">Save Changes</button>
-                <button type="button" id="postDelete01" class="btn btn-outline-danger ml-2">Remove Post</button>
-
+                <label for="createSubmit"></label>
+                <input id="createSubmit" class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Create Post">
             </div>
-            <div class="col-12 px-2">
-                <hr class="mb-4">
-            </div> -->
-
-            <form class="form-horizontal" (ngSubmit) = "createNewPost()">
-
-                <input class="form-control form-fields" type="text" name="title" placeholder="Title" [(ngModel)]="newPost.title">
-
-                <input class="form-control form-fields" type="text" name="category" placeholder="Category" [(ngModel)]="newPost.category">
-                
-                <input class="form-control form-fields" type="text" name="price" placeholder="Price" [(ngModel)]="newPost.price">
-
-                <input class="form-control form-fields" type="text" name="description" placeholder="Description" [(ngModel)]="newPost.description">
-
-                <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Create Post">
-
-            </form>
-
-        </div>
-
-        
-        
+            
+        </form>
+    </div>
+</div>

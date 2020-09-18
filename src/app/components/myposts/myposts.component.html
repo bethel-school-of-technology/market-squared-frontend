@@ -42,23 +42,24 @@
 
     <div class="row mt-5">
 
-        <!--ACCOUNT INFORMATION-->
+        <!--MY POSTS-->
         <div class="col-12 px-2">
             <div class="row form-inline">
 
                 <div class="col-6 text-left">
                     <h4 class="mb-0"><span>My Posts</span></h4>
                 </div>
-                <div class="col-6 text-right"><button type="button" (click)="goCreate()" id="create"
-                        class="btn btn-outline-success text-right">Create Post</button></div>
+
+                <div class="col-6 text-right">
+                    <button type="button" (click)="goCreate()" id="create" class="btn btn-outline-success text-right">Create Post</button>
+                </div>
 
             </div>
         </div>
+
         <div class="col-12 px-2">
             <hr class="mb-4">
         </div>
-
-
         
         <div class="row" *ngFor='let post of posts'>
 
