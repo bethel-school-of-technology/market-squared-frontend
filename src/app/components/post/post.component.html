@@ -21,8 +21,8 @@
         </ul>
 
         <ul class="navbar-nav mr-right">
-            <li class="nav-item">
-            <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
+            <li *ngIf="isLoggedIn">
+                <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" (click)="logoutUser()" value="Logout">
             </li>
         </ul>
     </div>
