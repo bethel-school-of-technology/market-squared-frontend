@@ -12,11 +12,10 @@ export class UserService {
   indexURL: string = 'http://localhost:3001';
   postURL: string = 'http://localhost:3001/posts'
 
-     //For Google Maps
-     latitude: number;
-     longitude: number;
-     zoom:number;
-  
+    //For Google Maps
+    latitude: number;
+    longitude: number;
+    zoom:number;
 
   constructor(private http: HttpClient) { }
 
@@ -46,7 +45,7 @@ export class UserService {
   }
 
   // We need a way to create a listing (CREATE)
-  createNewPost( createID: number, newPost: Post): Observable<Post> {
+  createNewPost(createID: number, newPost: Post): Observable<Post> {
     return this.http.post<Post>(`${this.indexURL}/create/${createID}`, newPost);
   }
 
@@ -55,7 +54,7 @@ export class UserService {
     return this.http.get<any>(`${this.indexURL}/myposts/${reqID}`);
   }
 
-// We need a way to see a single post/listing (READ)
+  // We need a way to see a single post/listing (READ)
   getOnePost(reqID: number): Observable<any> {
     return this.http.get<any>(`${this.indexURL}/post/${reqID}`);
   }

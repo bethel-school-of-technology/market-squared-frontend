@@ -6,73 +6,51 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        
         <li class="nav-item" *ngIf="isLoggedIn">
             <button type="button" class="btn btn-dark" disabled >Browse</button>
         </li>
-
         <li class="nav-item" *ngIf="isLoggedIn">
             <button type="button" class="btn btn-dark" (click)="gotoUser()">My Profile</button>
         </li>
-
         <li class="nav-item" *ngIf="isLoggedIn">
             <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
         </li>
     </ul>
 
     <ul class="navbar-nav mr-right">
-
         <li class="nav-item dropdown mr-3" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-light my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
-
             <form class="form-horizontal" (ngSubmit) = "loginUser()">
 
                 <input class="form-control form-fields" type="text" name="username" placeholder="Username" [(ngModel)]="regUser.username">
-
                 <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="regUser.password">
-
                 <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Login">
 
             </form>
-
-
-
         </div>
         </li>
 
         <li class="nav-item dropdown" *ngIf="!isLoggedIn">
         <button class="btn btn-outline-success my-2 my-sm-0 dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</button>
         <div class="dropdown-menu dropdown-menu-right p-3">
-
             <form class="form-horizontal" (ngSubmit) = "createNewUser()">
 
                 <input class="form-control form-fields" type="text" name="firstName" placeholder="First Name" [(ngModel)]="newUser.first_name">
-
                 <input class="form-control form-fields" type="text" name="lastName" placeholder="Last Name" [(ngModel)]="newUser.last_name">
-
                 <input class="form-control form-fields" type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email">
-
                 <input class="form-control form-fields" type="text" name="zip_code" placeholder="ZIP" [(ngModel)]="newUser.zip_code">
-
                 <input class="form-control form-fields" type="text" name="username" placeholder="Username" [(ngModel)]="newUser.username">
-
                 <input class="form-control form-fields" type="password" name="password" placeholder="Password" [(ngModel)]="newUser.password">
-
                 <input class="btn btn-secondary" style="width:100%;" type="submit" name="submit" value="Sign Up">
 
             </form>
-
         </div>
         </li>
-
         <li *ngIf="isLoggedIn">
             <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" (click)="logoutUser()" value="Logout">
         </li>
-
     </ul>
-
-
     </div>
 </nav>
 
@@ -117,79 +95,46 @@
         </div>
     </div>
     </div>
-
 </div>
 <hr>
 
 <div class="container mx-auto" id="mainContent">
     <div class="row">
+        <div class="col mb-4" *ngFor='let post of posts'>
+            <div class="card" style="width: 20rem; height:100%;">
+                <div class="card-body d-flex flex-column">
+                    <div class="row">
 
-    <div class="col mb-4" *ngFor='let post of posts'>
+                        <div class="col-3 pl-4 cat-{{post.category}}"><span style="color:#666;">N/A</span></div>
+                        <div class="col"><h5>{{post.title}}<br><span style="color:green;">${{post.price}}</span></h5></div>
+                        <div class="col-12"><hr></div>
 
+                    </div>
 
-        <div class="card" style="width: 20rem; height:100%;">
-            <div class="card-body d-flex flex-column">
+                    <div class="card-body pt-0 px-0">
+                        <p style="color:#666;"><i>Posted by <b>{{post.user.username}}</b></i></p>
+                        <p class="card-text">{{post.description}}</p>
+                    </div>
 
-          
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-{{post.category}}"><span style="color:#666;">N/A</span></div>
-                    <div class="col"><h5>{{post.title}}<br><span style="color:green;">${{post.price}}</span></h5></div>
-                    <div class="col-12"><hr></div>
-
+                    <div class="mt-auto">
+                        <button style="width:100%;" [routerLink]="['../post', post.post_id]" class="btn btn-outline-primary">View post &#187;</button>
+                    </div>
                 </div>
-    
-                <div class="card-body pt-0 px-0">
-                    <p style="color:#666;"><i>Posted by <b>{{post.user.username}}</b></i></p>
-                    <p class="card-text">{{post.description}}</p>
-                </div>
-
-                <div class="mt-auto">
-                    <button style="width:100%;" [routerLink]="['../post', post.post_id]" class="btn btn-outline-primary">View post &#187;</button>
-                </div>
-
             </div>
         </div>
-
-
-
-        <!--
-        <div class="card" style="width: 20rem; height:100%;">
-        <div class="card-body d-flex flex-column">
-            <div class="card-text">
-
-                <div class="row">
-
-                    <div class="col-3 pl-4 cat-{{post.category}}"><span style="color:#666;">N/A</span></div>
-                    <div class="col"><h5>{{post.title}}<br>${{post.price}}</h5></div>
-
-                </div>
-
-                <p><i>{{post.user.username}}</i> | <i>{{post.category}}</i></p>
-                <p>{{post.description}}</p>
-
-            </div>
-
-            <div class="mt-auto">
-                <p class="text-right"><a [routerLink]="['../post', post.post_id]">View post &#187;</a></p>
-            </div>
-
-        </div>
-        </div>
-        -->
-    </div>
-
     </div>
 </div>
     <div class="container">
         <div class="form-group">
-          <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+
+            <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+
         </div>
-      
         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+            
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
             (dragEnd)="markerDragEnd($event)"></agm-marker>
+
         </agm-map>
-      
         <h5>Address: {{address}}</h5>
-      </div>
+    </div>

@@ -18,24 +18,16 @@
             <li class="nav-item">
                 <button type="button" class="btn btn-dark" (click)="gotoMyPosts()">My Posts</button>
             </li>
+
         </ul>
 
     <ul class="navbar-nav mr-right">
-
-        <!--<li class="nav-item">
-            <button type="button" class="btn btn-outline-light my-2 my-sm-0" (click)="logoutUser();"> Log Out </button>    
-
-         <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" routerLink="/home" routerLinkActive="active"id="logoutBut">Logout</button> 
-        </li>-->
 
         <li>
             <input class="btn btn-outline-danger ml-3" style="width:auto;" type="button" name="logout" value="Logout" (click)="logoutUser()">
         </li>
 
     </ul>
-
-        
-
     </div>
 </nav>
 
@@ -48,8 +40,8 @@
         Profile successfully updated!
         <button type="button" class="close" (click)="resetAlert()" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
+        </button>
+    </div>
 
     <form class="row mt-5" (ngSubmit) = "updateUser()">
 
@@ -86,6 +78,5 @@
             <label for="zipAcct">ZIP</label>
             <input type="text" name="zip_code" class="form-control form-fields mb-2" placeholder="ZIP" [(ngModel)]="currentUser.zip_code">
         </div>
-
     </form>
 </div>

@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  currentUser: User = new User();
+  currentUser: User = new User()
   userID: number;
-
   isUpdated: Boolean = false;
 
-  constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
+  constructor(private actRoute: ActivatedRoute, 
+              private userService: UserService, 
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -58,5 +58,4 @@ export class ProfileComponent implements OnInit {
     localStorage.removeItem("token");
     this.router.navigateByUrl('/');
   }
-
 }

@@ -11,13 +11,11 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
   currentPost: Post = new Post();
   postId: number;
   jwt: String;
   currentUser: Number;
   isLoggedIn: Boolean = false;
-
   //For Google Maps
   latitude: number;
   longitude: number;
@@ -25,24 +23,26 @@ export class PostComponent implements OnInit {
   address: string;
   private geoCoder;
 
-
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-  constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router, private mapsAPILoader: MapsAPILoader,
+  constructor(private actRoute: ActivatedRoute, 
+    private userService: UserService, 
+    private router: Router, 
+    private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
 
   ngOnInit(): void {
 
      // Extract ID from URL
-     this.postId = parseInt(this.actRoute.snapshot.paramMap.get('postId'));
-     console.log(this.postId);
- 
-     // Fetch user corresponding to the ID
-     this.userService.getOnePost(this.postId).subscribe(response => {
-       console.log(response);
-       this.currentPost = response;
-     });
+    this.postId = parseInt(this.actRoute.snapshot.paramMap.get('postId'));
+    console.log(this.postId);
+
+    // Fetch user corresponding to the ID
+    this.userService.getOnePost(this.postId).subscribe(response => {
+      console.log(response);
+      this.currentPost = response;
+    });
 
     //Assign token to a variable (jwt)
     this.jwt = localStorage.getItem("token");
@@ -68,18 +68,15 @@ export class PostComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
-
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
@@ -141,9 +138,6 @@ getAddress(latitude, longitude) {
     } else {
       window.alert('Geocoder failed due to: ' + status);
     }
-
   });
 }
-
-
 }

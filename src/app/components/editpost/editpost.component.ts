@@ -10,18 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./editpost.component.css']
 })
 export class EditpostComponent implements OnInit {
-
   postID: number;
   currentPost: Post = new Post();
   isUpdated: Boolean = false;
-
   userID: number;
   isLoggedIn:Boolean;
   currentUser: Number;
   jwt:String;
-  
 
-  constructor(private actRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
+  constructor(private actRoute: ActivatedRoute, 
+              private userService: UserService, 
+              private router: Router) { }
 
   ngOnInit(): void {
     
@@ -33,6 +32,7 @@ export class EditpostComponent implements OnInit {
 
     //IF USER IS LOGGED IN, PULL USER DATA FROM TOKEN
     if(this.isLoggedIn == true){
+
       //Separate the payload from the other items in the token
       let jwtData = this.jwt.split('.')[1];
       
@@ -43,9 +43,6 @@ export class EditpostComponent implements OnInit {
       //Pull User ID from decoded payload
       this.currentUser = decodedJwtData.user_id;
 
-      // Extract ID from URL
-      this.userID = parseInt(this.actRoute.snapshot.paramMap.get('id'));
-      //console.log(this.userID);
     }
     
     // Extract ID from URL
@@ -58,14 +55,15 @@ export class EditpostComponent implements OnInit {
       this.currentPost = response;
     });
     
-}
+  }
 
-deletePost(){
-  this.userService.deletePost(this.userID).subscribe(response => {
-    console.log(response);
-    this.router.navigate([`/myposts/${this.currentUser}`])
-})
-}
+
+  deletePost(){
+    this.userService.deletePost(this.userID).subscribe(response => {
+      console.log(response);
+      this.router.navigate([`/myposts/${this.currentUser}`])
+    })
+  }
 
   resetAlert() {
     this.isUpdated = false;
