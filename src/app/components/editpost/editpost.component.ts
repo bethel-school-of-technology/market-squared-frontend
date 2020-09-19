@@ -43,6 +43,9 @@ export class EditpostComponent implements OnInit {
       //Pull User ID from decoded payload
       this.currentUser = decodedJwtData.user_id;
 
+       // Extract ID from URL
+       this.userID = parseInt(this.actRoute.snapshot.paramMap.get('id'));
+
     }
     
     // Extract ID from URL
