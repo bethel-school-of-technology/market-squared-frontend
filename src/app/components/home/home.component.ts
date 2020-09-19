@@ -102,7 +102,8 @@ export class HomeComponent implements OnInit {
       console.log(response);
       //Pull User ID from response
       this.currentUser = response.user_id;
-      this.router.navigate([`/profile/${this.currentUser}`]);
+      //this.router.navigate([`/profile/${this.currentUser}`]);
+      window.location.reload();
     });
   }
 
