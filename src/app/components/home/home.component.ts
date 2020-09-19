@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   id: number;
   posts: Post[];
   regPost: Post = new Post();
-
   isLoggedIn: Boolean = false;
-
   jwt: String;
   currentUser: Number;
 
@@ -35,11 +33,10 @@ export class HomeComponent implements OnInit {
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-
   constructor(
-    private userService: UserService,
-    private router: Router,
-    private mapsAPILoader: MapsAPILoader,
+    private userService: UserService, 
+    private router: Router, 
+    private mapsAPILoader: MapsAPILoader, 
     private ngZone: NgZone
   ) { }
 
@@ -75,26 +72,21 @@ export class HomeComponent implements OnInit {
       console.log(this.currentUser);
     }
 
-    // ONLY USE THIS FOR TESTING - DO NOT ACTUALLY WANT THE TOKEN WIPED EVERY TIME THE HOMEPAGE IS LOADED
-    // localStorage.removeItem("token");
 
     //Google Maps
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
-
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
@@ -102,19 +94,15 @@ export class HomeComponent implements OnInit {
         });
       });
     });
-
   }
 
   //Not in ngOnInit
   createNewUser() {
     this.userService.createNewUser(this.newUser).subscribe(response => {
       console.log(response);
-
       //Pull User ID from response
       this.currentUser = response.user_id;
-
       this.router.navigate([`/profile/${this.currentUser}`]);
-
     });
   }
 
@@ -130,7 +118,6 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem("token");
     window.location.reload();
   }
-
 
   loginUser() {
     this.userService.loginUser(this.regUser).subscribe(response => {
@@ -171,7 +158,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
   markerDragEnd($event: any) {
     console.log($event);
     this.latitude = $event.coords.lat;
@@ -193,9 +179,6 @@ export class HomeComponent implements OnInit {
       } else {
         window.alert('Geocoder failed due to: ' + status);
       }
-
     });
   }
-
-
 }

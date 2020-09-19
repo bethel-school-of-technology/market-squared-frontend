@@ -3,6 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         
@@ -19,29 +20,36 @@
             </li>
         </ul>
 
-    <ul class="navbar-nav mr-right">
-        <li class="nav-item">
-        <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
-        </li>
-    </ul>
+        <ul class="navbar-nav mr-right">
+            <li class="nav-item">
+            <button class="btn btn-outline-light my-2 my-sm-0" href="#" type="button" id="logoutBut">Logout</button>
+            </li>
+        </ul>
     </div>
 </nav>
 
 <div class="container mx-auto" id="mainContent">
     <div class="row mt-5">
+
         <!--ACCOUNT INFORMATION-->
         <div class="col-12 px-2">
             <div class="row form-inline">
+                
                 <div class="col-6 text-left"><h4 class="mb-0">{{currentPost.title}}</h4></div>
                 <div class="col-6 text-right"><button type="button" id="postCreate" class="btn btn-primary text-right">Contact Seller</button></div>
+                
             </div>
         </div>
+
         <div class="col-12 px-2">
             <hr class="mb-4">
         </div>
+
     </div>
+
         <!--POST INFORMATION-->
         <div class="row ml-2 mr-2 mb-3">
+
             <!--SELLER-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Seller:</p>
@@ -49,6 +57,7 @@
             <div class="col-md-9 col-sm-12 mb-3 text-left">
                 <p id="postSeller">{{currentPost.user.username}}</p>
             </div>
+            
             <!--CATEGORY-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Category:</p>
@@ -56,6 +65,7 @@
             <div class="col-md-9 col-sm-12 mb-3 text-left">
                 <p id="postCat">{{currentPost.category}}</p>
             </div>
+            
             <!--PRICE-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Price:</p>
@@ -63,6 +73,7 @@
             <div class="col-md-9 col-sm-12 mb-3 text-left">
                 <p id="postPrice">${{currentPost.price}}</p>
             </div>
+
             <!--LOCATION-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Location:</p>
@@ -70,6 +81,7 @@
             <div class="col-md-9 col-sm-12 mb-3 text-left">
                 <p id="postLocation">{{currentPost.user.address}}</p>
             </div>
+
             <!--DESCRIPTION-->
             <div class="col-md-3 col-sm-12 text-left">
                 <p class="mb-2" style="font-weight:600;">Description:</p>
@@ -77,16 +89,19 @@
             <div class="col-md-9 col-sm-12 mb-3 text-left">
                 <p id="postDesc">{{currentPost.description}}</p>
             </div>
+
         </div>
     </div>
 
 <div class="container">
+
     <div class="form-group">
-      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+        <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
     </div>
-  
+
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
         (dragEnd)="markerDragEnd($event)"></agm-marker>
     </agm-map>
-  </div>
+
+</div>
